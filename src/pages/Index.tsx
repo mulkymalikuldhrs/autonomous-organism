@@ -3,28 +3,89 @@ import { NeuralBackground } from "@/components/NeuralBackground";
 import { Header } from "@/components/Header";
 import { OrganismCore } from "@/components/OrganismCore";
 import { OrganEngine } from "@/components/OrganEngine";
-import { AgentCard } from "@/components/AgentCard";
 import { OrganismCard, OrganismCardHeader, OrganismCardTitle, OrganismCardContent } from "@/components/ui/organism-card";
 import { MetricDisplay } from "@/components/ui/metric-display";
 import { ActivityLog } from "@/components/ui/activity-log";
-import { useOrganismSimulation } from "@/hooks/useOrganismSimulation";
 import { Progress } from "@/components/ui/progress";
+import { AuthGate } from "@/components/AuthGate";
+import { useOrganismReal } from "@/hooks/useOrganismReal";
+import { useToast } from "@/hooks/use-toast";
+import { Button } from "@/components/ui/button";
+import { usePuterAi } from "@/hooks/usePuterAi";
+import { supabase } from "@/integrations/supabase/client";
 
 export default function Index() {
-  const { state, logs, agents } = useOrganismSimulation();
+  const { toast } = useToast();
+  const puter = usePuterAi();
+  const { state, logs, runSense, runDecision } = useOrganismReal();
+
+  const logEntries = logs.map((l: any) => ({
+    id: l.id,
+    timestamp: new Date(l.created_at),
+    type: l.level,
+    source: l.source,
+    message: l.message,
+  }));
+
+  const onRunSense = async () => {
+    try {
+      await runSense();
+      toast({ title: "Sense Engine", description: "Ingest selesai dijalankan." });
+    } catch (e: any) {
+      toast({ title: "Sense gagal", description: e?.message ?? "Error", variant: "destructive" });
+    }
+  };
+
+  const onRunDecision = async () => {
+    try {
+      if (!puter.ready) throw new Error(puter.error ?? "Puter belum siap");
+
+      const { data: cleanRows, error } = await supabase
+        .from("problem_clean")
+        .select("text_clean")
+        .order("created_at", { ascending: false })
+        .limit(25);
+      if (error) throw error;
+
+      const corpus = (cleanRows ?? []).map((r) => r.text_clean).join("\n\n---\n\n").slice(0, 12000);
+      if (!corpus.trim()) throw new Error("Belum ada data problem_clean. Jalankan Sense dulu.");
+
+      const prompt =
+        "Kamu adalah Decision Core untuk organisme SaaS. Dari kumpulan keluhan berikut, pilih 1 tema masalah terbaik untuk dibangun sebagai MVP.\n" +
+        "Berikan output 3 baris saja, format persis:\n" +
+        "THEME: <tema>\n" +
+        "SCORE: <0-100>\n" +
+        "SUMMARY: <ringkas 1-2 kalimat>\n\n" +
+        "DATA:\n" +
+        corpus;
+
+      const text = await puter.chat(prompt, { model: "gpt-5-nano" });
+      const theme = (text.match(/THEME:\s*(.+)/i)?.[1] ?? "").trim();
+      const scoreRaw = (text.match(/SCORE:\s*(\d{1,3})/i)?.[1] ?? "50").trim();
+      const summary = (text.match(/SUMMARY:\s*(.+)/i)?.[1] ?? "").trim();
+      const score = Math.max(0, Math.min(100, Number(scoreRaw) || 50));
+      if (!theme) throw new Error("Output model tidak valid. Coba ulangi.");
+
+      await runDecision({ theme, score, summary, evidence: { model: "gpt-5-nano", raw: text } });
+      toast({ title: "Decision Core", description: `Top idea: ${theme} (${score})` });
+    } catch (e: any) {
+      toast({ title: "Decision gagal", description: e?.message ?? "Error", variant: "destructive" });
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
-      <NeuralBackground />
-      
-      <div className="relative z-10">
-        <Header 
-          organismName="ORGANISM-ALPHA" 
-          generation={state.generation} 
-          status="online" 
-        />
+    <AuthGate>
+      <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
+        <NeuralBackground />
+        
+        <div className="relative z-10">
+          <Header 
+            organismName="ORGANISM-ALPHA" 
+            generation={state?.generation ?? 1} 
+            status="online" 
+          />
 
-        <main className="container mx-auto px-4 py-8">
+          <main className="container mx-auto px-4 py-8">
           {/* Hero Section - Core Status */}
           <section className="mb-12">
             <div className="grid lg:grid-cols-3 gap-8 items-center">
@@ -37,21 +98,21 @@ export default function Index() {
                 <OrganismCardContent className="space-y-6">
                   <MetricDisplay 
                     label="Problems Scanned" 
-                    value={state.problemsScanned.toLocaleString()} 
+                    value={(state?.problemsScanned ?? 0).toLocaleString()} 
                     variant="primary"
                     trend="up"
-                    trendValue="+127 today"
+                    trendValue="real-time"
                   />
                   <MetricDisplay 
                     label="Ideas Generated" 
-                    value={state.ideasGenerated} 
+                    value={state?.ideasGenerated ?? 0} 
                     variant="default"
                     trend="up"
-                    trendValue="+3 today"
+                    trendValue="from DB"
                   />
                   <MetricDisplay 
                     label="Products Built" 
-                    value={state.productsBuilt} 
+                    value={0} 
                     variant="accent"
                     size="sm"
                   />
@@ -60,12 +121,26 @@ export default function Index() {
                     <Progress value={87} className="mt-2 h-2" />
                     <span className="text-xs text-success mt-1 block">87% Optimal</span>
                   </div>
+
+                  <div className="grid grid-cols-2 gap-3 pt-2">
+                    <Button onClick={onRunSense}>
+                      Run Sense
+                    </Button>
+                    <Button onClick={onRunDecision} variant="secondary" disabled={!puter.ready}>
+                      Run Decision
+                    </Button>
+                  </div>
+                  {!puter.ready && (
+                    <p className="text-xs text-muted-foreground">
+                      Memuat Puter.js… {puter.error ? `(${puter.error})` : ""}
+                    </p>
+                  )}
                 </OrganismCardContent>
               </OrganismCard>
 
               {/* Center - Core Visualization */}
               <div className="flex flex-col items-center justify-center py-8 lg:col-span-1">
-                <OrganismCore status={state.status} className="mb-16" />
+                <OrganismCore status="alive" className="mb-16" />
                 <div className="text-center mt-8">
                   <h2 className="text-2xl font-bold gradient-text-primary mb-2">
                     Autonomous Life System
@@ -86,20 +161,20 @@ export default function Index() {
                 <OrganismCardContent className="space-y-6">
                   <MetricDisplay 
                     label="Total Revenue" 
-                    value={`$${state.revenue.toFixed(2)}`} 
+                    value={`$${(state?.revenue ?? 0).toFixed(2)}`} 
                     variant="accent"
                     trend="up"
-                    trendValue="+$12.99 today"
+                    trendValue="tracked later"
                   />
                   <MetricDisplay 
                     label="Active Agents" 
-                    value={state.agentsActive} 
+                     value={0} 
                     variant="success"
                     size="sm"
                   />
                   <MetricDisplay 
                     label="Terminated" 
-                    value={state.agentsTerminated} 
+                     value={0} 
                     variant="destructive"
                     size="sm"
                   />
@@ -191,26 +266,17 @@ export default function Index() {
 
           {/* Agents & Logs Section */}
           <section className="grid lg:grid-cols-2 gap-8">
-            {/* Agent Spawner */}
+            {/* Agent Spawner (real backend not yet wired) */}
             <div>
               <h3 className="text-lg font-semibold mb-6 flex items-center gap-2">
                 <Bot className="w-5 h-5 text-intelligence" />
-                Active Agents
+                Agents
               </h3>
-              <div className="grid sm:grid-cols-2 gap-4">
-                {agents.map((agent) => (
-                  <AgentCard
-                    key={agent.id}
-                    id={agent.id}
-                    name={agent.name}
-                    type={agent.type}
-                    status={agent.status}
-                    tasksCompleted={agent.tasksCompleted}
-                    uptime={agent.uptime}
-                    efficiency={agent.efficiency}
-                  />
-                ))}
-              </div>
+              <OrganismCard variant="default" size="lg" className="p-6">
+                <p className="text-sm text-muted-foreground">
+                  Modul agent runtime (spawn/kill + telemetry) akan dibuat setelah pipeline Sense→Decision stabil.
+                </p>
+              </OrganismCard>
             </div>
 
             {/* Activity Log */}
@@ -220,7 +286,7 @@ export default function Index() {
                 Activity Log
               </h3>
               <OrganismCard variant="default" size="lg" className="h-[400px]">
-                <ActivityLog entries={logs} maxHeight="360px" />
+                <ActivityLog entries={logEntries} maxHeight="360px" />
               </OrganismCard>
             </div>
           </section>
@@ -234,8 +300,9 @@ export default function Index() {
               "Pemilik bukan bikin produk. Pemilik menciptakan spesies digital."
             </p>
           </footer>
-        </main>
+          </main>
+        </div>
       </div>
-    </div>
+    </AuthGate>
   );
 }
