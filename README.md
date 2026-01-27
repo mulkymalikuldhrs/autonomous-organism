@@ -59,6 +59,49 @@ This project is built with:
 - React
 - shadcn-ui
 - Tailwind CSS
+- FastAPI (Python)
+- SQLAlchemy
+- scikit-learn
+- NLTK
+
+## Backend Setup
+
+The backend is a Python application built with FastAPI.
+
+### Prerequisites
+
+- Python 3.8+
+- pip
+
+### Installation
+
+1.  **Navigate to the backend directory:**
+    ```sh
+    cd backend
+    ```
+
+2.  **Install the required dependencies:**
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+### Running the Backend
+
+1.  **Start the FastAPI server:**
+    ```sh
+    uvicorn main:app --reload
+    ```
+    The server will be running at `http://127.0.0.1:8000`.
+
+## Features
+
+This project is an implementation of the Autonomous SaaS Organism blueprint. It includes the following core components:
+
+*   **Sense Engine:** Scrapes websites to gather raw data about human problems.
+*   **Decision Core:** Analyzes the collected data using TF-IDF, KMeans clustering, and sentiment analysis to identify potential SaaS ideas.
+*   **API:** Exposes endpoints to trigger the Sense Engine and retrieve ideas from the Decision Core.
+*   **Frontend:** A React application to interact with the backend, trigger scraping, and view the generated ideas.
+
 
 ## How can I deploy this project?
 
