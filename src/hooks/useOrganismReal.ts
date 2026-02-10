@@ -37,43 +37,27 @@ export function useOrganismReal() {
 
   const logsQuery = useQuery({
     queryKey: ["engine_logs"],
-    enabled: !!profileQuery.data?.organization_id,
     queryFn: async () => {
-      const orgId = profileQuery.data!.organization_id;
-      const { data, error } = await supabase
-        .from("engine_logs")
-        .select("id, level, source, message, created_at")
-        .eq("organization_id", orgId)
-        .order("created_at", { ascending: false })
-        .limit(100);
-      if (error) throw error;
-      return data;
+      const resp = await fetch("/api/logs");
+      if (!resp.ok) throw new Error("Failed to fetch logs from local engine");
+      return resp.json();
     },
     refetchInterval: 4000,
   });
 
   const metricsQuery = useQuery({
     queryKey: ["metrics"],
-    enabled: !!profileQuery.data?.organization_id,
     queryFn: async () => {
-      const orgId = profileQuery.data!.organization_id;
-      const [{ count: rawCount }, { count: ideaCount }] = await Promise.all([
-        supabase.from("problem_raw").select("id", { count: "exact", head: true }).eq("organization_id", orgId),
-        supabase.from("idea_candidates").select("id", { count: "exact", head: true }).eq("organization_id", orgId),
-      ]);
-      return {
-        problemsScanned: rawCount ?? 0,
-        ideasGenerated: ideaCount ?? 0,
-        revenue: 0,
-        generation: 1,
-      } satisfies RealOrganismState;
+      const resp = await fetch("/api/metrics");
+      if (!resp.ok) throw new Error("Failed to fetch metrics from local engine");
+      return resp.json() as Promise<RealOrganismState>;
     },
     refetchInterval: 6000,
   });
 
   const runSense = useCallback(async () => {
-    const { error } = await supabase.functions.invoke("ingest-sense", { body: {} });
-    if (error) throw error;
+    const resp = await fetch("/api/run/sense", { method: "POST" });
+    if (!resp.ok) throw new Error("Sense trigger failed");
     await Promise.all([
       qc.invalidateQueries({ queryKey: ["engine_logs"] }),
       qc.invalidateQueries({ queryKey: ["metrics"] }),
@@ -81,20 +65,12 @@ export function useOrganismReal() {
   }, [qc]);
 
   const runDecision = useCallback(
-    async ({ theme, score, summary, evidence }: { theme: string; score: number; summary: string; evidence: any }) => {
-      const orgId = profileQuery.data?.organization_id;
-      if (!orgId) throw new Error("Org belum siap");
-      const { error } = await supabase.from("idea_candidates").insert({
-        organization_id: orgId,
-        theme,
-        score,
-        summary,
-        evidence,
-      });
-      if (error) throw error;
-      await qc.invalidateQueries({ queryKey: ["metrics"] });
+    async () => {
+      // In the new architecture, decision is part of the lifecycle or can be triggered.
+      // For now, we'll let it be autonomous, but we can add a POST /api/run/decision if needed.
+      console.log("Decision run triggered (Autonomous Lifecycle will pick it up)");
     },
-    [profileQuery.data?.organization_id, qc]
+    []
   );
 
   return {

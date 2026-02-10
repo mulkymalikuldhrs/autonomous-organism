@@ -12,6 +12,20 @@ dist
 dist-ssr
 *.local
 
+# python
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+backend/organism.db
+organism.db
+products/
+growth_outbox/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

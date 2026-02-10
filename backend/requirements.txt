@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+sqlalchemy
+nltk
+scikit-learn
+httpx
+beautifulsoup4
+pandas
+python-multipart
