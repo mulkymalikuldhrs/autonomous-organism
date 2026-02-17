@@ -1,73 +1,39 @@
-# Welcome to your Lovable project
+# ORGANISME SAAS OTONOM (Gen-3)
 
-## Project info
+## Blueprint Teknis – Gratis, Open Source, Otonom
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+Sistem ini adalah **Organisme SaaS Otonom** yang dirancang untuk menemukan masalah manusia, membangun solusi, melakukan pemasaran, dan berevolusi secara mandiri.
 
-## How can I edit this code?
+### Fitur Utama (Gen-3)
+- **Sense Engine (Indra):** Scraper real-time untuk Hacker News, Reddit (SaaS, Startups, Entrepreneur, SideProject), dan IndieHackers RSS.
+- **Decision Core (Otak):** Clustering masalah menggunakan TF-IDF & K-Means, analisis sentimen VADER, dan scoring dinamis.
+- **SaaS Factory (Rahim):** Generator otomatis yang membangun struktur folder produk (FastAPI Backend + HTML/Tailwind Frontend) di direktori `products/`.
+- **Growth Engine (Mulut):** Pembuat konten pemasaran otomatis untuk Twitter, Reddit, IndieHackers, dan Medium di `growth_outbox/`.
+- **Evolution Engine (Evolusi):** Tuning bobot scoring secara otomatis berdasarkan data performa (`RevenueLog` & `TrafficLog`).
+- **Agent Spawner:** Manajemen siklus hidup sub-agent spesialis untuk setiap produk yang dibangun.
+- **Immune System:** Pemantauan kesehatan sistem dan isolasi otomatis jika terjadi error berlebih.
 
-There are several ways of editing your application.
+### Tech Stack
+- **Frontend:** React, Vite, TypeScript, Tailwind CSS, shadcn-ui.
+- **Backend:** FastAPI, SQLAlchemy, SQLite.
+- **AI/LLM:** Local Ollama (llama3) atau HuggingFace Free Inference API (Mistral-7B).
+- **Data Science:** scikit-learn, NLTK, Pandas.
 
-**Use Lovable**
+### Cara Menjalankan
+1. **Frontend Setup:**
+   ```bash
+   npm i
+   npm run dev
+   ```
+2. **Backend Setup:**
+   ```bash
+   pip install -r backend/requirements.txt
+   uvicorn backend.main:app --host 127.0.0.1 --port 8000
+   ```
+3. **Konfigurasi (Opsional):**
+   - Tambahkan `HF_TOKEN` di `.env` untuk menggunakan HuggingFace.
+   - Pastikan Ollama jalan di `localhost:11434` untuk mode lokal penuh.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+### Filosofi
+"Pemilik bukan bikin produk. Pemilik menciptakan spesies digital."
+Sistem ini tidak membutuhkan intervensi manusia untuk siklus hidup harian. Ia akan terus mencari peluang, membangun MVP, dan mencoba tumbuh sendiri.
