@@ -1,73 +1,65 @@
-# Welcome to your Lovable project
+# 🧬 ORGANISME SAAS OTONOM (Gen-4)
 
-## Project info
+Sistem otonom yang dirancang untuk menemukan masalah manusia, membangun solusi SaaS, dan berkembang secara mandiri.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 🚀 Fitur Utama (Gen-4)
 
-## How can I edit this code?
+- **Sense Engine**: Menggunakan Playwright untuk scraping dinamis (HackerNews, Reddit, IndieHackers, ProductHunt).
+- **Decision Core**: Analisis sentimen dan clustering masalah menggunakan scikit-learn & NLTK.
+- **SaaS Factory**: Menghasilkan struktur produk lengkap (FastAPI + React/Tailwind + Docker).
+- **Growth Engine**: Strategi pemasaran multi-channel otomatis.
+- **Evolution Engine**: Penyesuaian bobot scoring berdasarkan performa produk di dunia nyata.
+- **Immune System**: Monitoring kesehatan sistem dan terminasi proses berbahaya.
 
-There are several ways of editing your application.
+## 🛠️ Struktur Proyek
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```text
+.
+├── backend/                # FastAPI Gen-4 Engine
+│   ├── engine/             # Modul logika otonom
+│   ├── main.py             # Entry point API & Scheduler
+│   ├── models.py           # Skema database SQLite (SQLAlchemy)
+│   └── test_organism.py    # Integrasi test lifecycle
+├── src/                    # React Frontend (Dashboard Telemetri)
+│   ├── hooks/              # Hook komunikasi backend
+│   └── pages/              # Dashboard interaktif
+├── products/               # Output SaaS yang dihasilkan (Auto-generated)
+└── organism.db             # Database SQLite pusat
 ```
 
-**Edit a file directly in GitHub**
+## ⚙️ Cara Menjalankan
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### 1. Backend (Python)
+Pastikan Python 3.10+ terinstal.
 
-**Use GitHub Codespaces**
+```bash
+# Install dependensi
+pip install -r backend/requirements.txt
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Install Playwright browser
+playwright install chromium
 
-## What technologies are used for this project?
+# Jalankan server
+uvicorn backend.main:app --host 127.0.0.1 --port 8000
+```
 
-This project is built with:
+### 2. Frontend (React)
+Pastikan Node.js 18+ terinstal.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```bash
+# Install dependensi
+npm install
 
-## How can I deploy this project?
+# Jalankan dev server
+npm run dev
+```
+Dashboard akan tersedia di `http://localhost:8080`. Frontend sudah dikonfigurasi untuk proxy ke backend di port 8000.
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## 🧪 Verifikasi
+Untuk memastikan sistem bekerja dengan benar, jalankan skrip integrasi:
+```bash
+python3 -m backend.test_organism
+```
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+---
+*"Pemilik bukan bikin produk. Pemilik menciptakan spesies digital."*
