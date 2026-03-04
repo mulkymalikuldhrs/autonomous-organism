@@ -1,73 +1,71 @@
-# Welcome to your Lovable project
+# 🧬 ORGANISME SAAS OTONOM (Gen-4)
+## Autonomous SaaS Organism Architecture
 
-## Project info
+**Misi:** $50,000/bulan dalam 12 bulan
+**Status:** Gen-4 ACTIVE
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+---
 
-## How can I edit this code?
+## 🏗️ ARCHITECTURE
 
-There are several ways of editing your application.
+The organism is split into two main layers:
 
-**Use Lovable**
+### 1. 🧠 Core Backend (Python Gen-4)
+Powered by FastAPI and SQLAlchemy, located in `/backend`.
+- **Sense Engine:** Scrapes HackerNews, Reddit, and ProductHunt using Playwright.
+- **Decision Core:** Clusters problems with scikit-learn and scores them using a weighted formula.
+- **SaaS Factory:** Automatically generates complete FastAPI/React boilerplate in `/products`.
+- **Growth Engine:** Generates marketing campaigns across multi-stage launches.
+- **Evolution Engine:** Adjusts its own scoring weights based on simulated or real performance.
+- **Immune System:** Monitors error rates and system health to prevent runaway loops.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+### 2. 👁️ Dashboard Frontend (React + Vite)
+A futuristic, bioluminescent dashboard to monitor the organism's vital signs and trigger manual overrides.
+- Real-time activity logs directly from the backend.
+- Operational metrics (Problems Scanned, Ideas, Products, Revenue).
+- Manual control for each engine (Sense, Decision, Factory, Growth).
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 🚀 GETTING STARTED
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 1. Requirements
+- Python 3.10+
+- Node.js 18+
+- Ollama (optional, for local LLM support)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 2. Setup & Run
+Run the consolidated startup script:
+```bash
+chmod +x start_organism.sh
+./start_organism.sh
+```
 
-Follow these steps:
+Or run manually:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+**Backend:**
+```bash
+pip install -r backend/requirements.txt
+python3 -m backend.main
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+**Frontend:**
+```bash
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🛠️ CONFIGURATION
 
-**Use GitHub Codespaces**
+Settings are stored in the SQLite database (`organism.db`) and can be adjusted by the Evolution Engine or via direct DB edits to the `system_settings` table.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- `decision_neg_weight`: Default 40.0
+- `decision_volume_weight`: Default 2.0
+- `decision_automation_weight`: Default 20.0
+- `decision_revenue_weight`: Default 20.0
 
-## What technologies are used for this project?
+---
 
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+*"Pemilik bukan bikin produk. Pemilik menciptakan spesies digital."*
