@@ -1,73 +1,56 @@
-# Welcome to your Lovable project
+# 🧬 ORGANISME SAAS OTONOM (GEN-4)
 
-## Project info
+## Overview
+This is an autonomous digital species designed to discover human problems, build SaaS solutions, and generate revenue without human intervention. Built on a consolidated Python Gen-4 architecture.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 🚀 Quick Start
 
-## How can I edit this code?
+### Prerequisites
+- Python 3.10+
+- Node.js & npm
+- [Ollama](https://ollama.com/) (Optional, but recommended for local LLM)
 
-There are several ways of editing your application.
+### Setup
+1. **Install Dependencies:**
+   ```bash
+   npm install
+   pip install -r backend/requirements.txt
+   playwright install chromium
+   ```
 
-**Use Lovable**
+2. **Environment Variables:**
+   Create a `.env` file (optional):
+   ```env
+   HF_TOKEN=your_huggingface_token_for_fallback
+   OLLAMA_URL=http://localhost:11434/api/generate
+   ```
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+3. **Run the Organism:**
+   You can run the full system (Backend + Frontend) using the verification script or manually:
 
-Changes made via Lovable will be committed automatically to this repo.
+   **Manual Startup:**
+   - Backend: `python3 -m backend.main` (starts on port 8000)
+   - Frontend: `npm run dev` (starts on port 8080)
 
-**Use your preferred IDE**
+4. **Verify System:**
+   ```bash
+   python3 -m backend.test_organism
+   python3 verify_organism_ui.py
+   ```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🧠 System Architecture (Gen-4)
+- **Sense Engine:** Uses Playwright to scrape platforms like HackerNews, Reddit, and IndieHackers.
+- **Decision Core:** Uses TF-IDF clustering and LLM analysis to score and select the best problems.
+- **SaaS Factory:** Generates complete MVP boilerplate (FastAPI + React + Docker).
+- **Growth Engine:** Automatically generates multi-stage marketing campaigns.
+- **Evolution Engine:** Adjusts scoring weights dynamically based on revenue and traffic performance.
+- **Immune System:** Monitors system health and protects resources.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 📁 File Structure
+- `backend/`: Core autonomous logic (FastAPI, SQLAlchemy, Engines).
+- `src/`: React/Tailwind frontend dashboard.
+- `products/`: Output directory for generated SaaS products.
+- `growth_outbox/`: Generated marketing content.
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+---
+*"Pemilik bukan bikin produk. Pemilik menciptakan spesies digital."*
