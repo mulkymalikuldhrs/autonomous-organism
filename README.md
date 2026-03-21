@@ -1,73 +1,46 @@
-# Welcome to your Lovable project
+# 🧬 ORGANISME SAAS OTONOM (Gen-4)
 
-## Project info
+## Misi: $50,000/bulan dalam 12 bulan
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+Organisme ini dirancang sebagai "digital species" yang mandiri: menemukan masalah, membangun solusi, melakukan pemasaran, dan menghasilkan uang tanpa intervensi manusia.
 
-## How can I edit this code?
+## Arsitektur (8-Stage Lifecycle)
 
-There are several ways of editing your application.
+1.  **Sense**: Scrape Reddit, HN, dll via Playwright untuk mencari keluhan manusia.
+2.  **Decision**: Scoring masalah menggunakan weighted formula (Volume, Emosi, Kemudahan Otomasi).
+3.  **Factory**: Generate boilerplate produk (FastAPI + React) menggunakan LLM.
+4.  **Spawner**: Mengelola agent spesialis (Builder, Growth, Research).
+5.  **Growth**: Marketing otomatis (Content gen, Social posting).
+6.  **Monetization**: Simulasi & integrasi revenue tracking.
+7.  **Evolution**: Tuning parameter scoring berdasarkan performa produk.
+8.  **Immune**: Monitoring kesehatan sistem, kill process jika error berlebih.
 
-**Use Lovable**
+## Cara Menjalankan
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+### 1. Backend (FastAPI)
 
-Changes made via Lovable will be committed automatically to this repo.
+```bash
+cd backend
+pip install -r requirements.txt
+python3 main.py
+```
 
-**Use your preferred IDE**
+API akan berjalan di `http://localhost:8000`.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 2. Frontend (Vite + React)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Frontend akan berjalan di `http://localhost:8080`.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Persyaratan
+- Python 3.10+
+- Node.js 18+
+- Playwright (Run `playwright install chromium`)
+- Ollama (Optional, uses local LLM if available)
 
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## Lisensi
+Open Source - Digital Species Blueprint.
