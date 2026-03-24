@@ -1,110 +1,102 @@
 import { useCallback } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
 
 export type RealOrganismState = {
   problemsScanned: number;
   ideasGenerated: number;
+  productsBuilt: number;
   revenue: number;
+  activeAgents: number;
+  terminatedAgents: number;
   generation: number;
+};
+
+export type Agent = {
+  id: number;
+  type: string;
+  status: string;
+  personality: string;
+  last_run: string;
 };
 
 export function useOrganismReal() {
   const qc = useQueryClient();
 
-  const sessionQuery = useQuery({
-    queryKey: ["auth", "session"],
-    queryFn: async () => {
-      const { data, error } = await supabase.auth.getSession();
-      if (error) throw error;
-      return data.session;
-    },
-  });
-
-  const profileQuery = useQuery({
-    queryKey: ["profile"],
-    enabled: !!sessionQuery.data,
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from("profiles")
-        .select("organization_id, role, display_name")
-        .eq("user_id", sessionQuery.data!.user.id)
-        .maybeSingle();
-      if (error) throw error;
-      return data;
-    },
-  });
-
   const logsQuery = useQuery({
     queryKey: ["engine_logs"],
-    enabled: !!profileQuery.data?.organization_id,
     queryFn: async () => {
-      const orgId = profileQuery.data!.organization_id;
-      const { data, error } = await supabase
-        .from("engine_logs")
-        .select("id, level, source, message, created_at")
-        .eq("organization_id", orgId)
-        .order("created_at", { ascending: false })
-        .limit(100);
-      if (error) throw error;
-      return data;
+      const res = await fetch("/api/logs");
+      if (!res.ok) throw new Error("Failed to fetch logs");
+      return res.json();
     },
-    refetchInterval: 4000,
+    refetchInterval: 3000,
   });
 
   const metricsQuery = useQuery({
     queryKey: ["metrics"],
-    enabled: !!profileQuery.data?.organization_id,
     queryFn: async () => {
-      const orgId = profileQuery.data!.organization_id;
-      const [{ count: rawCount }, { count: ideaCount }] = await Promise.all([
-        supabase.from("problem_raw").select("id", { count: "exact", head: true }).eq("organization_id", orgId),
-        supabase.from("idea_candidates").select("id", { count: "exact", head: true }).eq("organization_id", orgId),
-      ]);
-      return {
-        problemsScanned: rawCount ?? 0,
-        ideasGenerated: ideaCount ?? 0,
-        revenue: 0,
-        generation: 1,
-      } satisfies RealOrganismState;
+      const res = await fetch("/api/metrics");
+      if (!res.ok) throw new Error("Failed to fetch metrics");
+      return res.json() as Promise<RealOrganismState>;
     },
-    refetchInterval: 6000,
+    refetchInterval: 5000,
+  });
+
+  const agentsQuery = useQuery({
+    queryKey: ["agents"],
+    queryFn: async () => {
+      const res = await fetch("/api/agents");
+      if (!res.ok) throw new Error("Failed to fetch agents");
+      return res.json() as Promise<Agent[]>;
+    },
+    refetchInterval: 10000,
   });
 
   const runSense = useCallback(async () => {
-    const { error } = await supabase.functions.invoke("ingest-sense", { body: {} });
-    if (error) throw error;
-    await Promise.all([
-      qc.invalidateQueries({ queryKey: ["engine_logs"] }),
-      qc.invalidateQueries({ queryKey: ["metrics"] }),
-    ]);
+    const res = await fetch("/api/run-sense", { method: "POST" });
+    if (!res.ok) throw new Error("Sense failed");
+    await qc.invalidateQueries({ queryKey: ["engine_logs"] });
   }, [qc]);
 
-  const runDecision = useCallback(
-    async ({ theme, score, summary, evidence }: { theme: string; score: number; summary: string; evidence: any }) => {
-      const orgId = profileQuery.data?.organization_id;
-      if (!orgId) throw new Error("Org belum siap");
-      const { error } = await supabase.from("idea_candidates").insert({
-        organization_id: orgId,
-        theme,
-        score,
-        summary,
-        evidence,
-      });
-      if (error) throw error;
-      await qc.invalidateQueries({ queryKey: ["metrics"] });
-    },
-    [profileQuery.data?.organization_id, qc]
-  );
+  const runDecision = useCallback(async () => {
+    const res = await fetch("/api/run-decision", { method: "POST" });
+    if (!res.ok) throw new Error("Decision failed");
+    await qc.invalidateQueries({ queryKey: ["engine_logs"] });
+  }, [qc]);
+
+  const runFactory = useCallback(async () => {
+    const res = await fetch("/api/run-factory", { method: "POST" });
+    if (!res.ok) throw new Error("Factory failed");
+    await qc.invalidateQueries({ queryKey: ["engine_logs"] });
+  }, [qc]);
+
+  const runGrowth = useCallback(async () => {
+    const res = await fetch("/api/run-growth", { method: "POST" });
+    if (!res.ok) throw new Error("Growth failed");
+    await qc.invalidateQueries({ queryKey: ["engine_logs"] });
+  }, [qc]);
+
+  const runMonetization = useCallback(async () => {
+    const res = await fetch("/api/run-monetization", { method: "POST" });
+    if (!res.ok) throw new Error("Monetization failed");
+    await qc.invalidateQueries({ queryKey: ["engine_logs"] });
+  }, [qc]);
+
+  const runSpawner = useCallback(async () => {
+    const res = await fetch("/api/run-spawner", { method: "POST" });
+    if (!res.ok) throw new Error("Spawner failed");
+    await qc.invalidateQueries({ queryKey: ["engine_logs"] });
+  }, [qc]);
 
   return {
-    session: sessionQuery.data,
-    profile: profileQuery.data,
     logs: logsQuery.data ?? [],
-    logsLoading: logsQuery.isLoading,
     state: metricsQuery.data,
-    stateLoading: metricsQuery.isLoading,
+    agents: agentsQuery.data ?? [],
     runSense,
     runDecision,
+    runFactory,
+    runGrowth,
+    runMonetization,
+    runSpawner
   };
 }

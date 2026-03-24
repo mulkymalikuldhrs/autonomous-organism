@@ -1,73 +1,44 @@
-# Welcome to your Lovable project
+# 🧬 ORGANISME SAAS OTONOM (Gen-4)
 
 ## Project info
+**Misi**: Mencapai revenue $50,000/bulan dalam 12 bulan.
+**Visi**: "Pemilik bukan bikin produk. Pemilik menciptakan spesies digital."
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Tech Stack (Gen-4 Architecture)
+- **Backend**: FastAPI (Python 3.11+)
+- **Frontend**: React + Tailwind CSS + Vite
+- **Database**: SQLite (Local) / Supabase (Optional)
+- **LLM**: Ollama (Local) / HuggingFace (Cloud Free)
+- **Automation**: Playwright, BeautifulSoup, NLTK, Scikit-learn
 
-## How can I edit this code?
+## How to Run
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
+### 1. Backend Setup
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+cd backend
+pip install -r requirements.txt
+python -m playwright install chromium
+python main.py
+```
+Backend runs on `http://127.0.0.1:8000`.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### 2. Frontend Setup
+```sh
+npm install
 npm run dev
 ```
+Frontend runs on `http://127.0.0.1:8080`.
 
-**Edit a file directly in GitHub**
+## Autonomous Lifecycle (8-Stage Loop)
+1. **SENSE**: Scrapes Reddit, HN, IndieHackers for human problems.
+2. **DECISION**: Scores ideas using weighted formulas and LLM analysis.
+3. **FACTORY**: Generates full SaaS project structures (Backend/Frontend/Docker).
+4. **SPAWNER**: Manages specialized sub-agents (Research, Builder, Growth, Support).
+5. **GROWTH**: Generates marketing campaigns across Twitter/Reddit/IH.
+6. **MONETIZATION**: Simulates and tracks real revenue conversions.
+7. **EVOLUTION**: Self-tunes scoring weights based on performance.
+8. **IMMUNE**: Monitors system health and prevents runaway processes.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## Verification
+- Run backend tests: `python3 -m backend.test_organism`
+- Run visual E2E: `python3 verify_organism_ui.py`
