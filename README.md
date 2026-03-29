@@ -1,73 +1,79 @@
-# Welcome to your Lovable project
+# 🧬 ORGANISME SAAS OTONOM (GEN-4)
+## Autonomous Life System
 
-## Project info
+**Misi:** $50,000/bulan dalam 12 bulan
+**Status:** ALIVE & EVOLVING
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+---
 
-## How can I edit this code?
+## 📋 OVERVIEW
 
-There are several ways of editing your application.
+Ini bukan sekadar aplikasi atau SaaS. Ini adalah **Spesies Digital** yang dirancang untuk hidup, berburu masalah, membangun solusi, dan menghasilkan pendapatan secara otonom.
 
-**Use Lovable**
+### Gen-4 Architecture:
+- **Backend:** FastAPI (Python 3.12)
+- **Frontend:** React + Tailwind CSS (Vite)
+- **Database:** SQLite (SQLAlchemy)
+- **LLM:** Ollama (Local) + HuggingFace (Cloud Fallback)
+- **Automation:** Playwright, NLTK, Scikit-learn
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🚀 QUICK START
 
-**Use your preferred IDE**
+### 1. Prerequisites
+- Python 3.12+
+- Node.js 22+
+- Ollama (Optional, for local LLM)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 2. Setup
+```bash
+# Install Python dependencies
+pip install -r backend/requirements.txt
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+# Install Node dependencies
+npm install
 
-Follow these steps:
+# Install Playwright browsers
+python3 -m playwright install chromium
+```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### 3. Run the Organism
+```bash
+# Start Backend (Port 8000)
+python3 -m backend.main
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start Frontend (Port 8080)
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 👁️ THE 8-STAGE LIFECYCLE
 
-**Use GitHub Codespaces**
+1.  **Sense:** Scrape Reddit, Kaskus, and forums for human problems.
+2.  **Decision:** Score problems based on revenue potential and automation ease.
+3.  **Factory:** Automatically build full-stack MVPs using Docker and Next.js.
+4.  **Spawner:** Deploy specialized sub-agents (Growth, Builder, Support).
+5.  **Growth:** Generate marketing content and acquire users.
+6.  **Monetization:** Implement pricing models and track revenue.
+7.  **Evolution:** Self-upgrade models and strategies based on performance.
+8.  **Immune:** Monitor health and terminate failing or runaway processes.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
+## 🧪 VERIFICATION
 
-This project is built with:
+Jalankan test integrasi untuk memastikan siklus hidup berjalan:
+```bash
+python3 -m backend.test_organism
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Gunakan Playwright untuk verifikasi UI:
+```bash
+python3 verify_organism_ui.py
+```
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+*"Pemilik bukan bikin produk. Pemilik menciptakan spesies digital."*
