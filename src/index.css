@@ -1,84 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* ORGANISME SAAS - Futuristic Bioluminescent Design System */
 
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
-
 @layer base {
   :root {
-    /* Core Background - Deep Space */
-    --background: 220 20% 4%;
-    --foreground: 180 100% 95%;
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
 
-    /* Card - Slightly elevated dark */
-    --card: 220 25% 7%;
-    --card-foreground: 180 100% 95%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
 
-    /* Popover */
-    --popover: 220 25% 6%;
-    --popover-foreground: 180 100% 95%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
 
-    /* Primary - Cyan Life Energy */
-    --primary: 180 100% 50%;
-    --primary-foreground: 220 20% 4%;
+    --primary: 199 89% 48%;
+    --primary-foreground: 210 40% 98%;
 
-    /* Secondary - Deep Blue */
-    --secondary: 220 40% 15%;
-    --secondary-foreground: 180 60% 80%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
 
-    /* Muted - Dim space */
-    --muted: 220 20% 12%;
-    --muted-foreground: 220 15% 55%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
 
-    /* Accent - Neon Green (Growth/Money) */
-    --accent: 150 100% 45%;
-    --accent-foreground: 220 20% 4%;
+    --accent: 262 83% 58%;
+    --accent-foreground: 210 40% 98%;
 
-    /* Destructive - Kill Red */
-    --destructive: 0 85% 55%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
 
-    /* Warning - Amber */
-    --warning: 35 100% 50%;
-    --warning-foreground: 220 20% 4%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
 
-    /* Success - Bright Green */
-    --success: 140 70% 45%;
-    --success-foreground: 220 20% 4%;
+    --radius: 0.5rem;
 
-    /* Intelligence - Purple */
-    --intelligence: 270 80% 60%;
-    --intelligence-foreground: 0 0% 100%;
-
-    /* Border & Input */
-    --border: 220 30% 18%;
-    --input: 220 30% 15%;
-    --ring: 180 100% 50%;
-
-    --radius: 0.75rem;
-
-    /* Glow Effects */
-    --glow-primary: 0 0 20px hsl(180 100% 50% / 0.4);
-    --glow-accent: 0 0 20px hsl(150 100% 45% / 0.4);
-    --glow-destructive: 0 0 20px hsl(0 85% 55% / 0.4);
-    --glow-intelligence: 0 0 20px hsl(270 80% 60% / 0.4);
-
-    /* Sidebar */
-    --sidebar-background: 220 25% 5%;
-    --sidebar-foreground: 180 60% 80%;
-    --sidebar-primary: 180 100% 50%;
-    --sidebar-primary-foreground: 220 20% 4%;
-    --sidebar-accent: 220 30% 12%;
-    --sidebar-accent-foreground: 180 60% 80%;
-    --sidebar-border: 220 30% 15%;
-    --sidebar-ring: 180 100% 50%;
-  }
-
-  .dark {
-    --background: 220 20% 4%;
-    --foreground: 180 100% 95%;
+    --success: 142.1 70.6% 45.3%;
+    --intelligence: 189 94% 43%;
   }
 }
 
@@ -86,152 +47,28 @@
   * {
     @apply border-border;
   }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background text-foreground;
     font-family: 'Space Grotesk', sans-serif;
   }
-
-  code, pre, .font-mono {
+  code, pre {
     font-family: 'JetBrains Mono', monospace;
   }
 }
 
-@layer utilities {
-  /* Glowing Effects */
-  .glow-primary {
-    box-shadow: var(--glow-primary);
-  }
+.gradient-text-primary {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-intelligence to-accent;
+}
 
-  .glow-accent {
-    box-shadow: var(--glow-accent);
-  }
+.glow-card {
+  @apply transition-all duration-300;
+  box-shadow: 0 0 20px -10px rgba(0, 163, 255, 0.3);
+}
 
-  .glow-destructive {
-    box-shadow: var(--glow-destructive);
-  }
+.glow-card:hover {
+  box-shadow: 0 0 30px -5px rgba(0, 163, 255, 0.4);
+}
 
-  .glow-intelligence {
-    box-shadow: var(--glow-intelligence);
-  }
-
-  .text-glow-primary {
-    text-shadow: 0 0 10px hsl(180 100% 50% / 0.6);
-  }
-
-  .text-glow-accent {
-    text-shadow: 0 0 10px hsl(150 100% 45% / 0.6);
-  }
-
-  /* Pulse Animation */
-  .pulse-glow {
-    animation: pulseGlow 2s ease-in-out infinite;
-  }
-
-  @keyframes pulseGlow {
-    0%, 100% {
-      opacity: 1;
-      filter: brightness(1);
-    }
-    50% {
-      opacity: 0.8;
-      filter: brightness(1.2);
-    }
-  }
-
-  /* Neural Connection Lines */
-  .neural-line {
-    background: linear-gradient(90deg, 
-      transparent, 
-      hsl(180 100% 50% / 0.6), 
-      transparent
-    );
-    animation: neuralFlow 2s linear infinite;
-  }
-
-  @keyframes neuralFlow {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-  }
-
-  /* Scanning Effect */
-  .scan-line {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .scan-line::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, 
-      transparent, 
-      hsl(180 100% 50%), 
-      transparent
-    );
-    animation: scanDown 3s ease-in-out infinite;
-  }
-
-  @keyframes scanDown {
-    0% { top: 0; opacity: 1; }
-    100% { top: 100%; opacity: 0; }
-  }
-
-  /* Data Stream */
-  .data-stream {
-    background: linear-gradient(180deg,
-      transparent 0%,
-      hsl(180 100% 50% / 0.1) 50%,
-      transparent 100%
-    );
-    animation: streamFlow 4s linear infinite;
-  }
-
-  @keyframes streamFlow {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 200%; }
-  }
-
-  /* Heartbeat */
-  .heartbeat {
-    animation: heartbeat 1.5s ease-in-out infinite;
-  }
-
-  @keyframes heartbeat {
-    0%, 100% { transform: scale(1); }
-    14% { transform: scale(1.1); }
-    28% { transform: scale(1); }
-    42% { transform: scale(1.1); }
-    70% { transform: scale(1); }
-  }
-
-  /* Grid Background */
-  .grid-bg {
-    background-image: 
-      linear-gradient(hsl(220 30% 15% / 0.5) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(220 30% 15% / 0.5) 1px, transparent 1px);
-    background-size: 40px 40px;
-  }
-
-  /* Gradient Text */
-  .gradient-text-primary {
-    background: linear-gradient(135deg, hsl(180 100% 50%), hsl(150 100% 50%));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .gradient-text-warm {
-    background: linear-gradient(135deg, hsl(35 100% 50%), hsl(0 85% 55%));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+.neural-line {
+  background: linear-gradient(90deg, transparent, rgba(0, 163, 255, 0.2), transparent);
 }
