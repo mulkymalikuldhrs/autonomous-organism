@@ -12,6 +12,33 @@ dist
 dist-ssr
 *.local
 
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Local databases
+*.db
+*.sqlite3
+
+# Product artifacts
+products/
+growth_outbox/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
