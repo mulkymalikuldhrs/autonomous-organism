@@ -1,526 +1,108 @@
-# 🧬 ORGANISME SAAS OTONOM
-## Blueprint Teknis v1.0
+# 🧬 ORGANISME SAAS OTONOM (Gen-4)
+## Technical Blueprint v4.0
 
-**Tuan:** Mulky Malikul Dhaher
-**Status:** ONDEVELOPMENT
-**Misi:** $50,000/bulan dalam 12 bulan
+Target: $50,000/month in 12 months
 
 ---
 
-## 📋 DAFTAR ISI
-
-1. [Tujuan Hidup](#0-tujuan-hidup)
-2. [Aturan Hidup](#1-aturan-hidup)
-3. [Infrastruktur](#2-infrastruktur)
-4. [Struktur Organisme](#3-struktur-organisme)
-5. [Desentralisasi](#4-desentralisasi)
-6. [Peran Manusia](#5-peran-manusia)
-7. [Gaya Hidup](#6-gaya-hidup)
-8. [Hasil Akhir](#7-hasil-akhir)
-
----
-
-## 0. TUJUAN HIDUP
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    ORGANISME LIFECYCLE                      │
-├─────────────────────────────────────────────────────────────┤
-│  1. Temukan masalah manusia                                │
-│     ↓                                                      │
-│  2. Pilih masalah terbaik                                  │
-│     ↓                                                      │
-│  3. Bangun solusi                                          │
-│     ↓                                                      │
-│  4. Deploy otomatis                                        │
-│     ↓                                                      │
-│  5. Cari user                                             │
-│     ↓                                                      │
-│  6. Hasilkan uang                                         │
-│     ↓                                                      │
-│  7. Evaluasi performa                                      │
-│     ↓                                                      │
-│  8. Upgrade diri                                          │
-│     ↓                                                      │
-│  9. Buat agent/organisme baru                              │
-│     ↓                                                      │
-│  10. REPEAT (dari langkah 1)                             │
-└─────────────────────────────────────────────────────────────┘
-```
-
-### KONDISI OPERASIONAL:
-- ✅ Tanpa API berbayar
-- ✅ Tanpa vendor mahal
-- ✅ Open source
-- ✅ Bisa jalan lokal + cloud gratis
+## 📋 TABLE OF CONTENTS
+1. [Objectives](#0-objectives)
+2. [Operating Rules](#1-operating-rules)
+3. [Infrastructure](#2-infrastructure)
+4. [Organism Structure](#3-organism-structure)
+5. [Decentralization](#4-decentralization)
+6. [Human Role](#5-human-role)
+7. [Life Cycle](#6-life-cycle)
+8. [Final Result](#7-final-result)
 
 ---
 
-## 1. ATURAN HIDUP
+## 0. OBJECTIVES
+- Find human problems.
+- Choose the best problem.
+- Build solutions.
+- Auto-deploy.
+- Find users.
+- Generate revenue.
+- Evaluate performance.
+- Self-upgrade.
+- Spawn new agents & organisms.
 
-### WAJIB:
-- [x] Bisa restart dari nol
-- [x] Bisa dihentikan kapan saja
-- [x] Bisa bunuh diri otomatis
-
-### PANTANGAN:
-- [ ] Stagnan
-- [ ] Ketinggalan tren
-- [ ] Ketergantungan berat ke vendor
-
-### LARANGAN KERAS:
-```
-DILARANG MERUGIKAN PEMILIK:
-├── Moral
-├── Sosial
-├── Nama baik
-├── Uang
-├── Waktu
-├── Perangkat
-├── Pikiran
-└── Emosi
-```
+**Operational Conditions:** No paid APIs, no expensive vendors, open source, local + free cloud.
 
 ---
 
-## 2. INFRASTRUKTUR
-
-### MODE OPERASI:
-
-| Lingkungan | Tool | Biaya |
-|-----------|------|-------|
-| Lokal | PC/Laptop | $0 |
-| Cloud Gratis | Vercel | $0 |
-| Cloud Gratis | Render | $0 |
-| Cloud Gratis | Fly.io | $0 |
-| Cloud Gratis | Oracle Free Tier | $0 |
-
-### STACK INTI:
-
-```
-┌─────────────────────────────────────────────┐
-│              STACK UTAMA                    │
-├─────────────────────────────────────────────┤
-│  Container:    Docker + Docker Compose      │
-│  Version:      GitHub + GitHub Actions     │
-│  Scheduler:    Cron / Prefect               │
-│  LLM Lokal:   Ollama                      │
-│  LLM Backup:  HuggingFace Inference        │
-└─────────────────────────────────────────────┘
-```
-
-### LLM SUPPORTED:
-- llama3
-- mistral
-- qwen
-- dan lainnya...
+## 1. OPERATING RULES (IMMUNE)
+**Required:** Restart from zero, stop anytime, automatic self-termination (suicide).
+**Forbidden:** Stagnation, falling behind trends, vendor dependency.
+**Strict Prohibitions:** No harm to the owner (Moral, Social, Reputation, Money, Time, Devices, Mental state, Emotions).
 
 ---
 
-## 3. STRUKTUR ORGANISME
-
-```
-┌────────────────────────────────────────────────────────────────┐
-│                    ORGANISME SAAS OTONOM                        │
-├────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐     │
-│  │   SENSE     │───▶│  DECISION   │───▶│   FACTORY   │     │
-│  │   ENGINE    │    │    CORE     │    │   (RAHIM)   │     │
-│  └─────────────┘    └─────────────┘    └─────────────┘     │
-│         │                  │                  │                │
-│         ↓                  ↓                  ↓                │
-│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐     │
-│  │   GROWTH    │◀───│   MEMORY    │───▶│MONETIZATION  │     │
-│  │   (MULUT)   │    │  (INGATAN)  │    │   (PERUT)   │     │
-│  └─────────────┘    └─────────────┘    └─────────────┘     │
-│                              │                               │
-│                              ↓                               │
-│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐     │
-│  │   AGENT     │    │  SCHEDULER │    │   IMMUNE    │     │
-│  │  SPAWNER    │    │  (JANTUNG) │    │  (ANTI GILA)│     │
-│  └─────────────┘    └─────────────┘    └─────────────┘     │
-│                                                                 │
-└────────────────────────────────────────────────────────────────┘
-```
+## 2. INFRASTRUKTUR (Gen-4)
+- **Local:** PC/Laptop
+- **Cloud:** Vercel, Render, Fly.io, Oracle Free Tier
+- **Stack:** Docker + GitHub Actions + FastAPI + React
+- **LLM:** Ollama (Local) with Cloud Fallback (HF Inference)
 
 ---
+
+## 3. ORGANISM STRUCTURE (Gen-4)
 
 ### A. SENSE ENGINE (INDRA)
-
-```javascript
-// Sumber data yang di-scan:
-const SOURCES = {
-  reddit: ['r/indonesia', 'r/startups', 'r/sideproject'],
-  kaskus: ['Forum Bisnis', 'Forum Tech'],
-  quora: ['indonesian-quora'],
-  youtube: ['Komentar video trending'],
-  marketplace: ['Review produk Shopee', 'Tokopedia'],
-  telegram: ['Public groups'],
-  blog: ['Medium Indonesia', 'Blogspot']
-};
-
-// Pipeline:
-/*
-  1. Scrape teks
-  2. Bersihkan: Spam, Duplikat, Noise
-  3. Simpan ke SQLite
-*/
-
-// Tabel:
-const TABLES = {
-  problem_raw: 'problem_raw(id, source, text, date)',
-  problem_clean: 'problem_clean(id, text_clean)'
-};
-```
-
----
+- **Sources:** Reddit, HN, ProductHunt, etc.
+- **Tools:** Playwright, BeautifulSoup.
+- **Output:** `problem_raw`, `problem_clean`.
 
 ### B. DECISION CORE (OTAK)
-
-```javascript
-// Proses:
-/*
-  1. TF-IDF vectorization
-  2. KMeans clustering
-  3. Analisis sentimen
-  4. Estimasi otomasi
-  5. Estimasi potensi uang
-*/
-
-// Formula Scoring:
-const calculateScore = (problem) => {
-  return (
-    problem.jumlah_keluhan * 0.4 +
-    problem.emosi_negatif * 0.2 +
-    problem.mudah_otomatis * 0.2 +
-    problem.potensi_uang * 0.2
-  );
-};
-
-// Output:
-const OUTPUT = 'idea_candidates(id, tema, score, ringkasan)';
-```
-
----
+- **Process:** TF-IDF vectorization, KMeans clustering, Sentiment analysis.
+- **Formula:** `score = (complaints * 0.4) + (negative_emotion * 0.2) + (automation_ease * 0.2) + (money_potential * 0.2)`.
 
 ### C. SAAS FACTORY (RAHIM)
-
-```javascript
-// Stack:
-const STACK = {
-  frontend: 'Next.js + Tailwind',
-  backend: 'FastAPI / Express',
-  db: 'SQLite / Supabase free',
-  auth: 'NextAuth / Lucia',
-  deploy: 'Vercel auto'
-};
-
-// Builder Agent menghasilkan:
-/*
-  - Struktur folder
-  - Skema database
-  - Endpoint API
-  - UI dasar
-  - Auto-test: API hidup, Login jalan, DB bisa simpan
-  - Jika gagal → abort & log
-*/
-```
-
----
+- **Stack:** Next.js + Tailwind, FastAPI, SQLite/Supabase.
+- **Output:** Directory-based product blueprints with structured schemas and endpoints.
 
 ### D. MONETIZATION ENGINE (PERUT)
-
-```javascript
-// Model Monetization:
-const MODELS = [
-  'Affiliate',
-  'Langganan (Subscription)',
-  'Jual tools',
-  'Jual lead',
-  'Donasi',
-  'Kombinasi'
-];
-
-// Agent tugas:
-/*
-  - Tentukan harga
-  - Buat paket
-  - Tulis CTA
-  - A/B testing
-*/
-
-// Log:
-const LOG = 'revenue_log(date, product, model, income)';
-```
-
----
+- **Models:** Affiliate, Subscription, Jual tools, leads, donations.
+- **Log:** `revenue_log(date, product, model, income)`.
 
 ### E. GROWTH ENGINE (MULUT)
-
-```javascript
-// Channel:
-const CHANNELS = [
-  'Blog otomatis',
-  'Medium',
-  'Substack',
-  'Telegram',
-  'Forum'
-];
-
-/ Pipeline:
-/*
-  1. Generate konten (LLM)
-  2. Jadwal posting
-  3. Track klik
-*/
-
-// Log:
-const LOG = 'traffic_log(date, channel, clicks, signup)';
-```
-
----
+- **Channels:** Blog, Medium, Substack, Telegram, Forum.
+- **Pipeline:** LLM-generated content, scheduled posting, click tracking.
 
 ### F. MEMORY ENGINE (INGATAN)
-
-```javascript
-// Tabel:
-const LIFE_LOG = 'life_log(type, name, result, reason)';
-
-// Analisa mingguan:
-/*
-  - Pola gagal
-  - Pola sukses
-  - Penyebab mati
-*/
-```
-
----
+- **Table:** `life_log(type, name, result, reason)`.
+- **Analysis:** Weekly patterns, failure root causes, "why the organism died."
 
 ### G. AGENT SPAWNER
-
-```javascript
-// Framework:
-const FRAMEWORKS = [
-  'CrewAI',
-  'AutoGen',
-  'LangGraph'
-];
-
-// Jenis Agent:
-const AGENT_TYPES = [
-  'Research',
-  'Builder',
-  'Growth',
-  'Support'
-];
-
-// Aturan hidup agent:
-/*
-  - Boros → mati
-  - Loop → mati
-  - Gagal berulang → mati
-*/
-```
-
----
+- **Framework:** CrewAI, AutoGen, LangGraph.
+- **Types:** Research, Builder, Growth, Support.
+- **Rules:** Expensive → Die, Loop → Die, Failed → Die.
 
 ### H. SCHEDULER (JANTUNG)
-
-```javascript
-// Siklus:
-const CYCLE = {
-  per_jam: 'Scan masalah',
-  harian: 'Bangun / upgrade produk',
-  mingguan: 'Bunuh yang gagal',
-  bulanan: 'Evaluasi spesies'
-};
-```
-
----
+- **Cycles:** Hourly (Scan), Daily (Build), Weekly (Terminate failures), Monthly (Evaluate species).
 
 ### I. IMMUNE SYSTEM (ANTI GILA)
-
-```javascript
-// Aturan:
-const RULES = {
-  max_iterasi_per_tugas: 10,
-  timeout_keras: '5 menit',
-  batas_compute: '1 CPU, 512MB RAM',
-  kill_jika_error_lebih_dari: 5
-};
-```
+- **Rules:** Max iterations, hard timeouts, compute limits, kill if error threshold met.
 
 ---
 
-### J. LOG & SARAF
-
-```javascript
-// Sistem:
-const LOGGING = {
-  log_file: 'file log',
-  log_db: 'database log',
-  monitoring: 'Prometheus + Grafana'
-};
-
-// Fungsi:
-/*
-  - Bisa jawab: "Kenapa rugi minggu ini?"
-  - Bisa jawab: "Kenapa produk mati?"
-*/
-```
+## 4. DECENTRALIZATION
+- Organisms can spawn new organisms; children can take over.
+- Independent brains and memories for each instance.
 
 ---
 
-### K. EVOLUSI
-
-```javascript
-// Dari data:
-/*
-  - Model paling hemat
-  - Channel paling cuan
-  - Fitur paling dipakai
-*/
-
-// Upgrade otomatis:
-/*
-  - Ganti model
-  - Ganti strategi
-  - Ganti struktur agent
-*/
-```
+## 5. HUMAN ROLE
+- **Owner:** Set life values, manual kill (agent/product/organism).
+- **AI:** Account registration, posting, deploying, closing products, learning from mistakes.
 
 ---
 
-## 4. DESENTRALISASI
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    DESENTRALISASI                            │
-├─────────────────────────────────────────────────────────────┤
-│  Organisme bisa:                                             │
-│  ├── Melahirkan organisme baru                                │
-│  ├── Anak bisa ambil alih                                    │
-│  └── Tidak tergantung satu pusat                             │
-│                                                              │
-│  Setiap organisme punya:                                      │
-│  ├── Otak sendiri (Decision Core)                          │
-│  ├── Ingatan sendiri (Memory Engine)                        │
-│  └── Aturan sendiri                                         │
-│                                                              │
-│  Jika induk mati → anak tetap hidup                          │
-└─────────────────────────────────────────────────────────────┘
-```
+## 6. LIFE CYCLE
+- Aggressive revenue search, fast termination of weak products, brutal evolution.
 
 ---
 
-## 5. PERAN MANUSIA
-
-### PEMILIK:
-```yaml
-Tugas:
-  - Tidak operasi harian
-  - Hanya set nilai hidup
-
-Kontrol:
-  - Kill agent
-  - Kill produk
-  - Kill organisme
-```
-
-### AI MELAKUKAN:
-```yaml
-Otomatis:
-  - Daftar akun
-  - Posting
-  - Deploy
-  - Tutup produk
-  - Belajar dari salah
-```
-
----
-
-## 6. GAYA HIDUP ORGANISME
-
-```yaml
-Sifat:
-  - Agresif cari uang
-  - Bunuh cepat yang lemah
-  - Evolusi brutal
-
-Jika gagal:
-  - Dicatat
-  - Tidak diselamatkan manual
-  - Dijadikan pelajaran
-```
-
----
-
-## 7. HASIL AKHIR
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    INI BUKAN:                               │
-├─────────────────────────────────────────────────────────────┤
-│  ✗ SaaS                                                     │
-│  ✗ Startup                                                 │
-│  ✗ App                                                     │
-├─────────────────────────────────────────────────────────────┤
-│                    INI ADALAH:                               │
-├─────────────────────────────────────────────────────────────┤
-│  ✓ Mesin hidup yang:                                        │
-│     ├── Membiakkan bisnis                                   │
-│     ├── Membunuh yang lemah                                 │
-│     ├── Belajar dari luka                                   │
-│     └── Berevolusi sendiri                                  │
-│                                                              │
-│  Pemilik bukan bikin produk.                                │
-│  Pemilik menciptakan spesies digital.                      │
-└─────────────────────────────────────────────────────────────┘
-```
-
----
-
-## 📁 FILE STRUCTURE
-
-```
-organism/
-├── sense/          #indra - kumpulkan masalah
-├── decision/       #otak - pilih masalah terbaik  
-├── factory/        #rahim - bangun SaaS
-├── monetization/  #perut - hasilkan uang
-├── growth/        #mulut - cari user
-├── memory/        #ingatan - belajar dari salah
-├── agents/        #jenis agent
-├── scheduler/      #jantung - siklus
-├── immune/        #anti gila - batas
-└── logs/          #saraf - monitoring
-```
-
----
-
-## 🚀 QUICK START
-
-```bash
-# 1. Clone repositori
-git clone https://github.com/mulky/organism-saaS-otonom
-
-# 2. Setup lingkungan
-cp .env.example .env
-
-# 3. Jalankan organism
-docker-compose up -d
-
-# 4. Monitor
-curl http://localhost:3000/health
-```
-
----
-
-**DIBUAT:** 2026-02-22
-**OLEH:** Dhaher AutoBot 🦀
-**UNTUK:** Mulky Malikul Dhaher
-
----
-
-*"Pemilik bukan bikin produk. Pemilik menciptakan spesies digital."*
+## 7. FINAL RESULT
+A living machine that breeds businesses, kills the weak, learns from pain, and evolves independently. The owner is not building a product, but creating a digital species.
