@@ -7,7 +7,7 @@ import { LucideIcon } from "lucide-react";
 interface OrganEngineProps {
   name: string;
   icon: LucideIcon;
-  variant: "sense" | "decision" | "factory" | "growth" | "memory" | "danger" | "default";
+  variant: "sense" | "decision" | "factory" | "growth" | "memory" | "danger" | "spawner" | "monetization" | "evolution" | "default";
   status: "online" | "offline" | "warning" | "error" | "processing" | "idle";
   metrics: Array<{
     label: string;
@@ -35,6 +35,9 @@ export function OrganEngine({
     growth: "text-success",
     memory: "text-warning",
     danger: "text-destructive",
+    spawner: "text-intelligence",
+    monetization: "text-success",
+    evolution: "text-primary",
     default: "text-foreground",
   };
 
@@ -65,7 +68,7 @@ export function OrganEngine({
               key={index}
               label={metric.label}
               value={metric.value}
-              variant={index === 0 ? (variant === "default" ? "primary" : variant === "sense" ? "primary" : variant === "decision" ? "primary" : variant === "factory" ? "accent" : variant === "growth" ? "success" : variant === "memory" ? "warning" : "destructive") : "default"}
+              variant={index === 0 ? (variant === "default" ? "primary" : variant === "sense" ? "primary" : variant === "decision" ? "primary" : variant === "factory" ? "accent" : variant === "growth" ? "success" : variant === "memory" ? "warning" : variant === "spawner" ? "primary" : variant === "monetization" ? "success" : variant === "evolution" ? "primary" : "destructive") : "default"}
               size="sm"
               trend={metric.trend}
               trendValue={metric.trendValue}
