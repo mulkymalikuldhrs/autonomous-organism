@@ -1,73 +1,58 @@
-# Welcome to your Lovable project
+# ORGANISME SAAS OTONOM (Gen-4)
 
-## Project info
+Blueprint Teknis – Gratis, Open Source, Otonom.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Overview
+This is a "Digital Species" designed to independently identify human problems, engineer solutions, and evolve its own strategies for growth and monetization.
 
-## How can I edit this code?
+### 8-Stage Autonomous Lifecycle
+1.  **👁️ SENSE**: Scans global (HackerNews, Reddit) and Indonesian (Kaskus, Quora ID, YouTube ID) sources using Playwright.
+2.  **🧠 DECISION**: Clusters problems using Scikit-Learn (TF-IDF + KMeans) and scores them based on sentiment and ROI potential.
+3.  **🏭 FACTORY**: Generates full-stack code (FastAPI + React) with a bioluminescent design system.
+4.  **🧬 SPAWNER**: Manages autonomous sub-agents (Builder, Growth, Research, Support).
+5.  **📢 GROWTH**: Creates multi-stage marketing campaigns across Twitter, Reddit, and Telegram.
+6.  **💰 MONETIZATION**: Simulates and tracks revenue from built products.
+7.  **🔄 EVOLUTION**: Adjusts internal scoring weights based on traffic and revenue performance.
+8.  **🛡️ IMMUNE**: Monitors system vitals and ensures the "Suicide Clause" is respected if the organism becomes harmful.
 
-There are several ways of editing your application.
+## Technical Stack
+- **Backend**: FastAPI (Python 3.12+)
+- **Frontend**: React + Vite + Tailwind CSS
+- **Database**: SQLite (SQLAlchemy)
+- **Intelligence**: Ollama (Local LLM) / HuggingFace (Cloud Backup)
+- **Automation**: Playwright, BeautifulSoup4, NLTK
 
-**Use Lovable**
+## Getting Started
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+### Local Development
+1. **Install Python Dependencies**:
+   ```bash
+   pip install -r backend/requirements.txt
+   ```
+2. **Install Node Dependencies**:
+   ```bash
+   npm install
+   ```
+3. **Run the Organism**:
+   ```bash
+   # Terminal 1: Backend
+   python3 -m backend.main
 
-Changes made via Lovable will be committed automatically to this repo.
+   # Terminal 2: Frontend
+   npm run dev
+   ```
+4. **Access Dashboard**: `http://localhost:8080`
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+## Verification
+Run the integrated test suite:
+```bash
+python3 -m backend.test_organism
 ```
 
-**Edit a file directly in GitHub**
+Run visual E2E verification:
+```bash
+python3 verify_organism_ui.py
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+---
+*Status: PRODUCTION-READY GEN-4*
