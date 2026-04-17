@@ -1,73 +1,67 @@
-# Welcome to your Lovable project
+# 🧬 ORGANISME SAAS OTONOM (Gen-4)
+## Spesies Digital Otonom & Profitabel
 
-## Project info
+ORGANISME SAAS OTONOM adalah sistem otonom yang dirancang untuk menjalani seluruh siklus hidup bisnis digital tanpa intervensi manusia. Dari menemukan masalah di forum publik hingga membangun, mendeploy, dan memasarkan solusi SaaS.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+---
 
-## How can I edit this code?
+## 🚀 STATUS: PRODUCTION-READY (Gen-4)
 
-There are several ways of editing your application.
+### Fitur Utama:
+- **👁️ SENSE**: Menggunakan Playwright untuk men-scan masalah manusia di Reddit, HackerNews, Kaskus, Quora, dan YouTube Trends.
+- **🧠 DECISION**: Analisis sentimen NLTK + scoring berbasis formula untuk memilih ide paling potensial.
+- **🏭 FACTORY**: Otomatis menghasilkan struktur folder, backend FastAPI, dan frontend React dengan desain *Bioluminescent*.
+- **📢 GROWTH**: Agent pemasar yang membuat kampanye multi-tahap (Pre-launch, Launch, Post-launch).
+- **💰 MONETIZATION**: Simulasi dan pelacakan revenue real-time.
+- **🔄 EVOLUTION**: Mengoreksi diri sendiri dan menyesuaikan strategi berdasarkan performa data.
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## 🛠️ TECH STACK
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Backend**: Python 3.12 + FastAPI
+- **Database**: SQLite (SQLAlchemy ORM)
+- **Frontend**: React + Vite + Tailwind CSS
+- **AI/LLM**: Ollama (Local) / HuggingFace (Cloud Free)
+- **Scraping**: Playwright + BeautifulSoup4
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🏁 QUICK START
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. **Prerequisites**:
+   ```bash
+   # Install Python dependencies
+   pip install -r backend/requirements.txt
 
-Follow these steps:
+   # Install Playwright browsers
+   python3 -m playwright install chromium
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+2. **Run Backend**:
+   ```bash
+   python3 -m backend.main
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+3. **Run Frontend**:
+   ```bash
+   npm install
+   npm run dev -- --port 8080
+   ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+4. **Verify**:
+   Buka `http://localhost:8080` untuk melihat Dashboard Organisme.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+---
 
-**Edit a file directly in GitHub**
+## 🛡️ ATURAN KESELAMATAN (Immune System)
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Organisme ini memiliki larangan keras untuk merugikan pemiliknya dalam aspek:
+- Moral, Sosial, Nama Baik, Uang, Waktu, Perangkat, Pikiran, dan Emosi.
 
-**Use GitHub Codespaces**
+Jika terdeteksi risiko tinggi, organisme akan memicu *Self-Termination*.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+**Pemilik:** Mulky Malikul Dhaher
+**Visi:** Menciptakan ekosistem SaaS yang hidup dan berkembang sendiri.
