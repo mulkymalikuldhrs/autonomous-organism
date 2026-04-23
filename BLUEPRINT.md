@@ -1,8 +1,8 @@
 # 🧬 ORGANISME SAAS OTONOM
-## Blueprint Teknis v1.0
+## Blueprint Teknis v4.0 (Gen-4)
 
 **Tuan:** Mulky Malikul Dhaher
-**Status:** ONDEVELOPMENT
+**Status:** PRODUCTION-READY
 **Misi:** $50,000/bulan dalam 12 bulan
 
 ---
@@ -26,31 +26,29 @@
 ┌─────────────────────────────────────────────────────────────┐
 │                    ORGANISME LIFECYCLE                      │
 ├─────────────────────────────────────────────────────────────┤
-│  1. Temukan masalah manusia                                │
+│  1. Temukan masalah manusia (Sense Engine - Playwright)     │
 │     ↓                                                      │
-│  2. Pilih masalah terbaik                                  │
+│  2. Pilih masalah terbaik (Decision Core - LLM + Scikit)   │
 │     ↓                                                      │
-│  3. Bangun solusi                                          │
+│  3. Bangun solusi (SaaS Factory - Code Gen)                │
 │     ↓                                                      │
-│  4. Deploy otomatis                                        │
+│  4. Spawn Agent baru (Spawner)                             │
 │     ↓                                                      │
-│  5. Cari user                                             │
+│  5. Cari user (Growth Engine - Content Gen)                │
 │     ↓                                                      │
-│  6. Hasilkan uang                                         │
+│  6. Hasilkan uang (Monetization Engine)                    │
 │     ↓                                                      │
-│  7. Evaluasi performa                                      │
+│  7. Upgrade diri (Evolution Engine - Dynamic Weights)       │
 │     ↓                                                      │
-│  8. Upgrade diri                                          │
+│  8. Evaluasi performa (Immune System)                      │
 │     ↓                                                      │
-│  9. Buat agent/organisme baru                              │
-│     ↓                                                      │
-│  10. REPEAT (dari langkah 1)                             │
+│  9. REPEAT (dari langkah 1)                             │
 └─────────────────────────────────────────────────────────────┘
 ```
 
 ### KONDISI OPERASIONAL:
-- ✅ Tanpa API berbayar
-- ✅ Tanpa vendor mahal
+- ✅ Tanpa API berbayar (Ollama / HF Free)
+- ✅ Tanpa vendor mahal (SQLite, Local Python)
 - ✅ Open source
 - ✅ Bisa jalan lokal + cloud gratis
 
@@ -61,7 +59,7 @@
 ### WAJIB:
 - [x] Bisa restart dari nol
 - [x] Bisa dihentikan kapan saja
-- [x] Bisa bunuh diri otomatis
+- [x] Bisa bunuh diri otomatis (Immune System)
 
 ### PANTANGAN:
 - [ ] Stagnan
@@ -89,11 +87,9 @@ DILARANG MERUGIKAN PEMILIK:
 
 | Lingkungan | Tool | Biaya |
 |-----------|------|-------|
-| Lokal | PC/Laptop | $0 |
-| Cloud Gratis | Vercel | $0 |
-| Cloud Gratis | Render | $0 |
-| Cloud Gratis | Fly.io | $0 |
-| Cloud Gratis | Oracle Free Tier | $0 |
+| Lokal | PC/Laptop (FastAPI + React) | $0 |
+| Cloud Gratis | Vercel (Frontend) | $0 |
+| Cloud Gratis | Render / Oracle (Backend) | $0 |
 
 ### STACK INTI:
 
@@ -101,383 +97,65 @@ DILARANG MERUGIKAN PEMILIK:
 ┌─────────────────────────────────────────────┐
 │              STACK UTAMA                    │
 ├─────────────────────────────────────────────┤
-│  Container:    Docker + Docker Compose      │
-│  Version:      GitHub + GitHub Actions     │
-│  Scheduler:    Cron / Prefect               │
-│  LLM Lokal:   Ollama                      │
-│  LLM Backup:  HuggingFace Inference        │
+│  Backend:      Python 3.12 + FastAPI        │
+│  Database:     SQLAlchemy + SQLite          │
+│  Frontend:     Vite + React + Tailwind      │
+│  LLM Lokal:    Ollama (llama3/mistral)      │
+│  LLM Backup:   HuggingFace Inference        │
+│  Automation:   Playwright                   │
 └─────────────────────────────────────────────┘
 ```
-
-### LLM SUPPORTED:
-- llama3
-- mistral
-- qwen
-- dan lainnya...
 
 ---
 
 ## 3. STRUKTUR ORGANISME
 
-```
-┌────────────────────────────────────────────────────────────────┐
-│                    ORGANISME SAAS OTONOM                        │
-├────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐     │
-│  │   SENSE     │───▶│  DECISION   │───▶│   FACTORY   │     │
-│  │   ENGINE    │    │    CORE     │    │   (RAHIM)   │     │
-│  └─────────────┘    └─────────────┘    └─────────────┘     │
-│         │                  │                  │                │
-│         ↓                  ↓                  ↓                │
-│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐     │
-│  │   GROWTH    │◀───│   MEMORY    │───▶│MONETIZATION  │     │
-│  │   (MULUT)   │    │  (INGATAN)  │    │   (PERUT)   │     │
-│  └─────────────┘    └─────────────┘    └─────────────┘     │
-│                              │                               │
-│                              ↓                               │
-│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐     │
-│  │   AGENT     │    │  SCHEDULER │    │   IMMUNE    │     │
-│  │  SPAWNER    │    │  (JANTUNG) │    │  (ANTI GILA)│     │
-│  └─────────────┘    └─────────────┘    └─────────────┘     │
-│                                                                 │
-└────────────────────────────────────────────────────────────────┘
-```
-
----
-
 ### A. SENSE ENGINE (INDRA)
+Menggunakan **Playwright** untuk scraping dinamis dan **LLM** sebagai noise filter.
 
-```javascript
-// Sumber data yang di-scan:
-const SOURCES = {
-  reddit: ['r/indonesia', 'r/startups', 'r/sideproject'],
-  kaskus: ['Forum Bisnis', 'Forum Tech'],
-  quora: ['indonesian-quora'],
-  youtube: ['Komentar video trending'],
-  marketplace: ['Review produk Shopee', 'Tokopedia'],
-  telegram: ['Public groups'],
-  blog: ['Medium Indonesia', 'Blogspot']
-};
+```python
+# Sumber data:
+SOURCES = [
+    "HackerNews (Newest/Show)",
+    "Reddit RSS (SaaS, Startups, Entrepreneur)",
+    "ProductHunt (Dynamic)",
+    "IndieHackers (Dynamic)"
+]
 
-// Pipeline:
-/*
-  1. Scrape teks
-  2. Bersihkan: Spam, Duplikat, Noise
-  3. Simpan ke SQLite
-*/
-
-// Tabel:
-const TABLES = {
-  problem_raw: 'problem_raw(id, source, text, date)',
-  problem_clean: 'problem_clean(id, text_clean)'
-};
+# Pipeline:
+# 1. Scrape (Dynamic/Static)
+# 2. Noise Filter (LLM: "Is this a real complaint?")
+# 3. Store in problem_raw & problem_clean
 ```
 
 ---
 
 ### B. DECISION CORE (OTAK)
+Analisis mendalam menggunakan **NLTK (Sentiment)** dan **LLM (Strategy)**.
 
-```javascript
-// Proses:
-/*
-  1. TF-IDF vectorization
-  2. KMeans clustering
-  3. Analisis sentimen
-  4. Estimasi otomasi
-  5. Estimasi potensi uang
-*/
-
-// Formula Scoring:
-const calculateScore = (problem) => {
-  return (
-    problem.jumlah_keluhan * 0.4 +
-    problem.emosi_negatif * 0.2 +
-    problem.mudah_otomatis * 0.2 +
-    problem.potensi_uang * 0.2
-  );
-};
-
-// Output:
-const OUTPUT = 'idea_candidates(id, tema, score, ringkasan)';
+```python
+# Formula Scoring Dinamis (Tuned by Evolution):
+score = (keluhan * w1) + (sentimen * w2) + (otomasi * w3) + (potensi * w4)
 ```
 
 ---
 
 ### C. SAAS FACTORY (RAHIM)
+Menghasilkan struktur produk lengkap secara otomatis.
 
-```javascript
-// Stack:
-const STACK = {
-  frontend: 'Next.js + Tailwind',
-  backend: 'FastAPI / Express',
-  db: 'SQLite / Supabase free',
-  auth: 'NextAuth / Lucia',
-  deploy: 'Vercel auto'
-};
-
-// Builder Agent menghasilkan:
-/*
-  - Struktur folder
-  - Skema database
-  - Endpoint API
-  - UI dasar
-  - Auto-test: API hidup, Login jalan, DB bisa simpan
-  - Jika gagal → abort & log
-*/
+```text
+Output:
+├── backend/main.py (FastAPI)
+├── frontend/App.jsx (React)
+├── Dockerfile
+├── docker-compose.yml
+└── blueprint.json
 ```
 
 ---
 
-### D. MONETIZATION ENGINE (PERUT)
-
-```javascript
-// Model Monetization:
-const MODELS = [
-  'Affiliate',
-  'Langganan (Subscription)',
-  'Jual tools',
-  'Jual lead',
-  'Donasi',
-  'Kombinasi'
-];
-
-// Agent tugas:
-/*
-  - Tentukan harga
-  - Buat paket
-  - Tulis CTA
-  - A/B testing
-*/
-
-// Log:
-const LOG = 'revenue_log(date, product, model, income)';
-```
-
----
-
-### E. GROWTH ENGINE (MULUT)
-
-```javascript
-// Channel:
-const CHANNELS = [
-  'Blog otomatis',
-  'Medium',
-  'Substack',
-  'Telegram',
-  'Forum'
-];
-
-/ Pipeline:
-/*
-  1. Generate konten (LLM)
-  2. Jadwal posting
-  3. Track klik
-*/
-
-// Log:
-const LOG = 'traffic_log(date, channel, clicks, signup)';
-```
-
----
-
-### F. MEMORY ENGINE (INGATAN)
-
-```javascript
-// Tabel:
-const LIFE_LOG = 'life_log(type, name, result, reason)';
-
-// Analisa mingguan:
-/*
-  - Pola gagal
-  - Pola sukses
-  - Penyebab mati
-*/
-```
-
----
-
-### G. AGENT SPAWNER
-
-```javascript
-// Framework:
-const FRAMEWORKS = [
-  'CrewAI',
-  'AutoGen',
-  'LangGraph'
-];
-
-// Jenis Agent:
-const AGENT_TYPES = [
-  'Research',
-  'Builder',
-  'Growth',
-  'Support'
-];
-
-// Aturan hidup agent:
-/*
-  - Boros → mati
-  - Loop → mati
-  - Gagal berulang → mati
-*/
-```
-
----
-
-### H. SCHEDULER (JANTUNG)
-
-```javascript
-// Siklus:
-const CYCLE = {
-  per_jam: 'Scan masalah',
-  harian: 'Bangun / upgrade produk',
-  mingguan: 'Bunuh yang gagal',
-  bulanan: 'Evaluasi spesies'
-};
-```
-
----
-
-### I. IMMUNE SYSTEM (ANTI GILA)
-
-```javascript
-// Aturan:
-const RULES = {
-  max_iterasi_per_tugas: 10,
-  timeout_keras: '5 menit',
-  batas_compute: '1 CPU, 512MB RAM',
-  kill_jika_error_lebih_dari: 5
-};
-```
-
----
-
-### J. LOG & SARAF
-
-```javascript
-// Sistem:
-const LOGGING = {
-  log_file: 'file log',
-  log_db: 'database log',
-  monitoring: 'Prometheus + Grafana'
-};
-
-// Fungsi:
-/*
-  - Bisa jawab: "Kenapa rugi minggu ini?"
-  - Bisa jawab: "Kenapa produk mati?"
-*/
-```
-
----
-
-### K. EVOLUSI
-
-```javascript
-// Dari data:
-/*
-  - Model paling hemat
-  - Channel paling cuan
-  - Fitur paling dipakai
-*/
-
-// Upgrade otomatis:
-/*
-  - Ganti model
-  - Ganti strategi
-  - Ganti struktur agent
-*/
-```
-
----
-
-## 4. DESENTRALISASI
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    DESENTRALISASI                            │
-├─────────────────────────────────────────────────────────────┤
-│  Organisme bisa:                                             │
-│  ├── Melahirkan organisme baru                                │
-│  ├── Anak bisa ambil alih                                    │
-│  └── Tidak tergantung satu pusat                             │
-│                                                              │
-│  Setiap organisme punya:                                      │
-│  ├── Otak sendiri (Decision Core)                          │
-│  ├── Ingatan sendiri (Memory Engine)                        │
-│  └── Aturan sendiri                                         │
-│                                                              │
-│  Jika induk mati → anak tetap hidup                          │
-└─────────────────────────────────────────────────────────────┘
-```
-
----
-
-## 5. PERAN MANUSIA
-
-### PEMILIK:
-```yaml
-Tugas:
-  - Tidak operasi harian
-  - Hanya set nilai hidup
-
-Kontrol:
-  - Kill agent
-  - Kill produk
-  - Kill organisme
-```
-
-### AI MELAKUKAN:
-```yaml
-Otomatis:
-  - Daftar akun
-  - Posting
-  - Deploy
-  - Tutup produk
-  - Belajar dari salah
-```
-
----
-
-## 6. GAYA HIDUP ORGANISME
-
-```yaml
-Sifat:
-  - Agresif cari uang
-  - Bunuh cepat yang lemah
-  - Evolusi brutal
-
-Jika gagal:
-  - Dicatat
-  - Tidak diselamatkan manual
-  - Dijadikan pelajaran
-```
-
----
-
-## 7. HASIL AKHIR
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    INI BUKAN:                               │
-├─────────────────────────────────────────────────────────────┤
-│  ✗ SaaS                                                     │
-│  ✗ Startup                                                 │
-│  ✗ App                                                     │
-├─────────────────────────────────────────────────────────────┤
-│                    INI ADALAH:                               │
-├─────────────────────────────────────────────────────────────┤
-│  ✓ Mesin hidup yang:                                        │
-│     ├── Membiakkan bisnis                                   │
-│     ├── Membunuh yang lemah                                 │
-│     ├── Belajar dari luka                                   │
-│     └── Berevolusi sendiri                                  │
-│                                                              │
-│  Pemilik bukan bikin produk.                                │
-│  Pemilik menciptakan spesies digital.                      │
-└─────────────────────────────────────────────────────────────┘
-```
+### D. EVOLUTION ENGINE
+Meng-upgrade diri sendiri dengan menyesuaikan bobot scoring berdasarkan performa (revenue & traffic).
 
 ---
 
@@ -485,40 +163,40 @@ Jika gagal:
 
 ```
 organism/
-├── sense/          #indra - kumpulkan masalah
-├── decision/       #otak - pilih masalah terbaik  
-├── factory/        #rahim - bangun SaaS
-├── monetization/  #perut - hasilkan uang
-├── growth/        #mulut - cari user
-├── memory/        #ingatan - belajar dari salah
-├── agents/        #jenis agent
-├── scheduler/      #jantung - siklus
-├── immune/        #anti gila - batas
-└── logs/          #saraf - monitoring
+├── backend/
+│   ├── engine/         # Core logic (Sense, Decision, Factory, etc.)
+│   ├── main.py         # FastAPI Entry point
+│   ├── models.py       # SQLAlchemy Models
+│   └── database.py     # DB Connection
+├── src/                # Frontend (React)
+├── products/           # Generated SaaS Products
+├── BLUEPRINT.md        # This file
+└── README.md           # Instructions
 ```
 
 ---
 
-## 🚀 QUICK START
+## 🚀 VERIFICATION
+
+Untuk memverifikasi sistem secara penuh:
 
 ```bash
-# 1. Clone repositori
-git clone https://github.com/mulky/organism-saaS-otonom
+# 1. Jalankan Backend
+python3 -m backend.main &
 
-# 2. Setup lingkungan
-cp .env.example .env
+# 2. Jalankan Frontend
+npm run dev &
 
-# 3. Jalankan organism
-docker-compose up -d
-
-# 4. Monitor
-curl http://localhost:3000/health
+# 3. Jalankan Verification Script
+python3 verify_organism_ui.py
 ```
+
+Artefak verifikasi (video & screenshot) akan tersimpan di `/home/jules/verification/`.
 
 ---
 
-**DIBUAT:** 2026-02-22
-**OLEH:** Dhaher AutoBot 🦀
+**DIBUAT:** 2026-02-24
+**OLEH:** Jules (Autonomous Agent) 🦀
 **UNTUK:** Mulky Malikul Dhaher
 
 ---
