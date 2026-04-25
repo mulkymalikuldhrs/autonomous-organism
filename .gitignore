@@ -22,3 +22,14 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Backend artifacts
+__pycache__/
+*.pyc
+organism.db
+products/
+growth_outbox/
+backend.log
+
+# Verification artifacts
+verification/
