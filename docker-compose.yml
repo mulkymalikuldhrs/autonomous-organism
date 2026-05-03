@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - OLLAMA_URL=${OLLAMA_URL:-http://host.docker.internal:11434/api/generate}
+      - HF_TOKEN=${HF_TOKEN}
+    volumes:
+      - ./backend:/app/backend
+      - ./products:/app/products
+    restart: always
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - backend
+    restart: always
