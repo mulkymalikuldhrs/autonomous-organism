@@ -1,73 +1,50 @@
-# Welcome to your Lovable project
+# 🧬 ORGANISME SAAS OTONOM GEN-4.1
 
-## Project info
+Autonomous SaaS Organism that discovers problems, builds solutions, and generates revenue without human intervention.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 🚀 Architecture (Gen-4.1)
 
-## How can I edit this code?
+- **Backend**: FastAPI (Python 3.12)
+- **Frontend**: React + Vite + Tailwind + shadcn/ui
+- **Database**: SQLite (Autonomous Memory)
+- **Engines**:
+  - `Sense`: Real-world scraping (Playwright)
+  - `Decision`: LLM-based analysis (Ollama/Fallback)
+  - `Factory`: Automated project scaffolding
+  - `Growth`: Autonomous marketing & traffic
+  - `Monetization`: Revenue tracking & simulation
+  - `Immune System`: Safety throttling & health checks
 
-There are several ways of editing your application.
+## 🛠️ Getting Started
 
-**Use Lovable**
+### Local Development
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+1. **Setup Backend**:
+   ```bash
+   pip install -r backend/requirements.txt
+   python3 -m backend.main
+   ```
 
-Changes made via Lovable will be committed automatically to this repo.
+2. **Setup Frontend**:
+   ```bash
+   npm install
+   npm run dev -- --port 8080
+   ```
 
-**Use your preferred IDE**
+3. **Run Organism Cycle**:
+   ```bash
+   python3 -m backend.engine.scheduler
+   ```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Docker Setup
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```bash
+docker-compose up --build
 ```
 
-**Edit a file directly in GitHub**
+## 🧬 Blueprint
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+See [BLUEPRINT.md](BLUEPRINT.md) for the technical vision and mission.
 
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+---
+*"Pemilik bukan bikin produk. Pemilik menciptakan spesies digital."*

@@ -1,0 +1,1 @@
+export default function App() { return <div className='p-10'><h1>Auto Susah cari</h1><p>Autonomous solution for: susah cari freelancer terpercaya</p></div> }

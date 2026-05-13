@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+sqlalchemy
+playwright
+beautifulsoup4
+requests
+pydantic
+python-dotenv
+nltk
+scikit-learn
