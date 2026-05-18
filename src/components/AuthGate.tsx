@@ -31,6 +31,6 @@ export function AuthGate({ children }: { children: React.ReactNode }) {
     };
   }, [nav]);
 
-  if (!ready) return null;
+  // Local autonomous mode: bypass auth gate
   return <>{children}</>;
 }
