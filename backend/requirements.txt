@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+sqlalchemy
+httpx
+beautifulsoup4
+nltk
+scikit-learn
+pandas
+python-multipart
+pydantic
+pydantic-settings
+aiofiles
+playwright
+lxml
