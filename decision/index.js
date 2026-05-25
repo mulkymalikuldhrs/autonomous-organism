@@ -25,7 +25,6 @@ class DecisionCore {
   // KMeans Clustering (simplified)
   cluster(problems) {
     console.log('   📊 Clustering masalah...');
-    // simplified - nanti pakai scikit-learn / TF-IDF
     return problems;
   }
 
@@ -59,7 +58,6 @@ class DecisionCore {
 
   // Estimasi potensi uang
   estimateMoneyPotential(text) {
-    // Indicator kata-kata yang berkaitan dengan willingness to pay
     const highValue = ['jual', 'beli', 'uang', 'modal', 'bisnis', 'jualan', 'produk', 'harga'];
     const lowValue = ['cari', 'butuh', 'mau', ' cari gratisan', 'free'];
     
@@ -74,24 +72,22 @@ class DecisionCore {
 
   // Hitung Score
   calculateScore(problem) {
-    // Normalize metrics
     const comments = problem.comments || problem.replies || problem.reviews || 10;
-    const commentScore = Math.min(comments / 200, 1); // Normalize ke 0-1
-    
+    const commentScore = Math.min(comments / 200, 1);
+
     const sentiment = this.analyzeSentiment(problem.text);
     const sentimentScore = sentiment === 'negative' ? 1 : (sentiment === 'neutral' ? 0.5 : 0.2);
-    
+
     const autoScore = this.estimateAutomation(problem.text);
     const moneyScore = this.estimateMoneyPotential(problem.text);
-    
-    // Formula
+
     const score = (
       commentScore * 0.4 +
       sentimentScore * 0.2 +
       autoScore * 0.2 +
       moneyScore * 0.2
     );
-    
+
     return {
       ...problem,
       scores: {
@@ -111,12 +107,9 @@ class DecisionCore {
 ╚═══════════════════════════════════════════════════════════╝
     `);
 
-    // Hitung score semua masalah
     const scored = problems.map(p => this.calculateScore(p));
-    
-    // Urutkan dari score tertinggi
     scored.sort((a, b) => b.totalScore - a.totalScore);
-    
+
     console.log('\n📊 Top 5 Masalah:\n');
     scored.slice(0, 5).forEach((p, i) => {
       console.log(`   ${i+1}. ${p.text}`);
@@ -124,13 +117,14 @@ class DecisionCore {
     });
 
     this.candidates = scored;
-    
-    return scored[0]; // Return yang terbaik
+    return scored[0];
   }
 }
 
+export default DecisionCore;
+
 // Run if called directly
-if (require.main === module) {
+if (process.argv[1] && process.argv[1].endsWith('decision/index.js')) {
   const decision = new DecisionCore();
   const testProblems = [
     { text: 'Susah cari freelancer terpercaya', comments: 150 },
@@ -142,5 +136,3 @@ if (require.main === module) {
     process.exit(0);
   });
 }
-
-module.exports = DecisionCore;

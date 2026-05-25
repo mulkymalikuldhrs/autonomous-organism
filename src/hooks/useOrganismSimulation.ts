@@ -1,3 +1,8 @@
+/**
+ * @deprecated Use useOrganismReal.ts instead for Supabase-connected real data.
+ * This hook is kept as a fallback for demo/preview mode without Supabase auth.
+ */
+
 import { useState, useEffect, useCallback } from "react";
 import type { LogEntry } from "@/components/ui/activity-log";
 
@@ -13,29 +18,12 @@ interface OrganismState {
   agentsTerminated: number;
 }
 
-interface Agent {
-  id: string;
-  name: string;
-  type: "research" | "builder" | "growth" | "support";
-  status: "active" | "idle" | "terminated" | "spawning";
-  tasksCompleted: number;
-  uptime: string;
-  efficiency: number;
-}
-
-const agentNames = {
-  research: ["SCOUT-", "PROBE-", "SENSOR-", "SCAN-"],
-  builder: ["FORGE-", "BUILD-", "CREATE-", "CRAFT-"],
-  growth: ["GROW-", "SCALE-", "BOOST-", "VIRAL-"],
-  support: ["FIX-", "HEAL-", "PATCH-", "MEND-"],
-};
-
 const logMessages = {
   sense: [
     "Scanning Reddit for pain points...",
     "Analyzing YouTube comments...",
     "Processing Quora questions...",
-    "Found 47 potential problems in tech space",
+    "Found potential problems in tech space",
     "Detected trending issue: API rate limiting",
   ],
   decision: [
@@ -59,18 +47,11 @@ const logMessages = {
     "New signup from organic search",
     "Revenue +$12.99 from subscription",
   ],
-  memory: [
-    "Recording success pattern...",
-    "Logging failed experiment...",
-    "Updating strategy weights...",
-    "Weekly analysis complete",
-  ],
   system: [
-    "Agent FORGE-7 efficiency dropping...",
-    "Spawning new research agent...",
-    "Terminating idle agent...",
-    "Memory optimization complete",
     "Immune system check: OK",
+    "Memory optimization complete",
+    "Spawning new research agent...",
+    "Agent efficiency monitoring active",
   ],
 };
 
@@ -79,23 +60,15 @@ export function useOrganismSimulation() {
     status: "alive",
     generation: 1,
     uptime: 0,
-    problemsScanned: 2847,
-    ideasGenerated: 156,
-    productsBuilt: 3,
-    revenue: 247.5,
-    agentsActive: 4,
-    agentsTerminated: 2,
+    problemsScanned: 0,
+    ideasGenerated: 0,
+    productsBuilt: 0,
+    revenue: 0,
+    agentsActive: 0,
+    agentsTerminated: 0,
   });
 
   const [logs, setLogs] = useState<LogEntry[]>([]);
-  const [agents, setAgents] = useState<Agent[]>([
-    { id: "R001", name: "SCOUT-1", type: "research", status: "active", tasksCompleted: 127, uptime: "3d 4h", efficiency: 94 },
-    { id: "B001", name: "FORGE-1", type: "builder", status: "active", tasksCompleted: 45, uptime: "2d 12h", efficiency: 88 },
-    { id: "G001", name: "GROW-1", type: "growth", status: "idle", tasksCompleted: 89, uptime: "1d 8h", efficiency: 72 },
-    { id: "S001", name: "FIX-1", type: "support", status: "active", tasksCompleted: 234, uptime: "5d 2h", efficiency: 91 },
-    { id: "R002", name: "PROBE-2", type: "research", status: "terminated", tasksCompleted: 12, uptime: "0d 0h", efficiency: 0 },
-    { id: "B002", name: "BUILD-2", type: "builder", status: "spawning", tasksCompleted: 0, uptime: "0d 0h", efficiency: 0 },
-  ]);
 
   const addLog = useCallback((type: LogEntry["type"], source: string, message: string) => {
     const newLog: LogEntry = {
@@ -111,8 +84,7 @@ export function useOrganismSimulation() {
   // Simulate organism activity
   useEffect(() => {
     const interval = setInterval(() => {
-      // Random activity
-      const sources = ["SENSE", "DECISION", "FACTORY", "GROWTH", "MEMORY", "SYSTEM"];
+      const sources = ["SENSE", "DECISION", "FACTORY", "GROWTH", "SYSTEM"];
       const sourceKey = sources[Math.floor(Math.random() * sources.length)].toLowerCase() as keyof typeof logMessages;
       const messages = logMessages[sourceKey] || logMessages.system;
       const message = messages[Math.floor(Math.random() * messages.length)];
@@ -129,7 +101,6 @@ export function useOrganismSimulation() {
           uptime: prev.uptime + 1,
           problemsScanned: prev.problemsScanned + Math.floor(Math.random() * 10),
           ideasGenerated: Math.random() > 0.9 ? prev.ideasGenerated + 1 : prev.ideasGenerated,
-          revenue: Math.random() > 0.8 ? +(prev.revenue + Math.random() * 5).toFixed(2) : prev.revenue,
         }));
       }
     }, 3000);
@@ -139,10 +110,10 @@ export function useOrganismSimulation() {
 
   // Initial logs
   useEffect(() => {
-    addLog("system", "CORE", "Organism initialized successfully");
+    addLog("system", "CORE", "Simulation mode — no Supabase connection");
     addLog("info", "SENSE", "Beginning environmental scan...");
-    addLog("success", "SYSTEM", "All engines operational");
+    addLog("success", "SYSTEM", "All engines operational (demo mode)");
   }, [addLog]);
 
-  return { state, logs, agents, addLog };
+  return { state, logs, agents: [], addLog };
 }

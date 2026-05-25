@@ -44,7 +44,6 @@ class SenseEngine {
   }
 
   cleanText(text) {
-    // Hapus spam, duplikat, noise
     return text.toLowerCase()
       .replace(/https?:\/\/\S+/g, '')
       .replace(/@\w+/g, '')
@@ -59,37 +58,32 @@ class SenseEngine {
 ╚═══════════════════════════════════════════════════════════╝
     `);
 
-    // Scrape semua sumber
     const [reddit, kaskus, marketplace] = await Promise.all([
       this.scrapeReddit(),
       this.scrapeKaskus(),
       this.scrapeMarketplace()
     ]);
 
-    // Gabungkan dan bersihkan
     const allProblems = [...reddit, ...kaskus, ...marketplace]
       .map(p => ({
         ...p,
         text_clean: this.cleanText(p.text)
       }))
-      .filter((v, i, a) => a.findIndex(t => t.text_clean === v.text_clean) === i); // Hapus duplikat
+      .filter((v, i, a) => a.findIndex(t => t.text_clean === v.text_clean) === i);
 
     console.log(`\n✅ Total masalah ditemukan: ${allProblems.length}`);
-
-    // Simpan ke "database"
     this.db = allProblems;
-
     return allProblems;
   }
 }
 
+export default SenseEngine;
+
 // Run if called directly
-if (require.main === module) {
+if (process.argv[1] && process.argv[1].endsWith('sense/index.js')) {
   const sense = new SenseEngine();
   sense.run().then(problems => {
     console.log('\n👁️ Problems:', problems);
     process.exit(0);
   });
 }
-
-module.exports = SenseEngine;

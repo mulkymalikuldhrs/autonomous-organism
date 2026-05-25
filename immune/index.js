@@ -24,7 +24,6 @@ class ImmuneSystem {
     };
   }
 
-  // Check iterasi limit
   canContinue(taskId) {
     const current = this.counters.iterasi[taskId] || 0;
     
@@ -37,7 +36,6 @@ class ImmuneSystem {
     return true;
   }
 
-  // Check timeout
   checkTimeout(startTime, taskId) {
     const elapsed = Date.now() - startTime;
     
@@ -49,7 +47,6 @@ class ImmuneSystem {
     return true;
   }
 
-  // Record error
   recordError(taskId) {
     const current = this.counters.errors[taskId] || 0;
     this.counters.errors[taskId] = current + 1;
@@ -62,7 +59,6 @@ class ImmuneSystem {
     return true;
   }
 
-  // Detect loop
   detectLoop(taskId, state) {
     const key = `${taskId}_${JSON.stringify(state)}`;
     const current = this.counters.loops[key] || 0;
@@ -77,13 +73,10 @@ class ImmuneSystem {
     return true;
   }
 
-  // Kill process
   kill(taskId, reason) {
     console.log(`   💀 KILLING: ${taskId} - ${reason}`);
     
-    // Reset counters for this task
     delete this.counters.iterasi[taskId];
-    // Keep error count for analysis
     
     return {
       killed: true,
@@ -93,14 +86,12 @@ class ImmuneSystem {
     };
   }
 
-  // Reset counters
   reset(taskId) {
     this.counters.iterasi[taskId] = 0;
     this.counters.errors[taskId] = 0;
     console.log(`   🔄 Reset counters for: ${taskId}`);
   }
 
-  // Health check
   healthCheck() {
     const errorTasks = Object.entries(this.counters.errors)
       .filter(([_, count]) => count >= 3)
@@ -133,11 +124,11 @@ class ImmuneSystem {
   }
 }
 
+export default ImmuneSystem;
+
 // Run if called directly
-if (require.main === module) {
+if (process.argv[1] && process.argv[1].endsWith('immune/index.js')) {
   const immune = new ImmuneSystem();
   immune.run();
   process.exit(0);
 }
-
-module.exports = ImmuneSystem;
