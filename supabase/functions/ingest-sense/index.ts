@@ -30,7 +30,7 @@ function getXmlTag(xml: string, tag: string) {
 }
 
 function getXmlTagAttr(xml: string, tag: string, attr: string) {
-  const m = xml.match(new RegExp(`<${tag}[^>]*${attr}="([^"]+)"[^>]*\/?>`, "i"));
+  const m = xml.match(new RegExp(`<${tag}[^>]*${attr}="([^"]+)"[^>]*\\/?>`, "i"));
   return m?.[1]?.trim() ?? null;
 }
 

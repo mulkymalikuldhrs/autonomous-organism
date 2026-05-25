@@ -10,6 +10,9 @@ type PuterChatOptions = {
   model?: string;
 };
 
+/** Default AI model — override via VITE_AI_MODEL env var */
+const DEFAULT_MODEL = import.meta.env.VITE_AI_MODEL || "gpt-4o-mini";
+
 export function usePuterAi() {
   const [ready, setReady] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -40,7 +43,7 @@ export function usePuterAi() {
   const api = useMemo(() => {
     const chat = async (prompt: string, options?: PuterChatOptions) => {
       if (!window.puter?.ai?.chat) throw new Error("Puter AI belum siap");
-      const res = await window.puter.ai.chat(prompt, { model: options?.model ?? "gpt-5-nano" });
+      const res = await window.puter.ai.chat(prompt, { model: options?.model ?? DEFAULT_MODEL });
       // Puter returns either string or object depending on mode; normalize
       if (typeof res === "string") return res;
       if (res?.message?.content) return res.message.content;

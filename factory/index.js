@@ -5,12 +5,16 @@
  * Stack: Next.js + Tailwind + FastAPI + SQLite
  */
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 class SaasFactory {
   constructor() {
-    this.outputDir = '/home/mulky/.openclaw/workspace/organism/factory/output';
+    this.outputDir = path.join(process.cwd(), 'factory', 'output');
   }
 
   ensureDir() {
@@ -203,7 +207,6 @@ services:
     const { dir, structure } = this.generateStructure(project.name);
     fs.mkdirSync(dir, { recursive: true });
     
-    // Write all files
     for (const [filename, content] of Object.entries(structure)) {
       const filePath = path.join(dir, filename);
       fs.mkdirSync(path.dirname(filePath), { recursive: true });
@@ -218,7 +221,6 @@ services:
   async test(project) {
     console.log('   🧪 Running auto-tests...');
     
-    // Simplified - check if files exist
     const checks = [
       { name: 'package.json', check: true },
       { name: 'API route', check: true },
@@ -246,7 +248,6 @@ services:
 
     this.ensureDir();
 
-    // Generate name from problem
     const name = problem.text
       .split(' ')
       .slice(0, 3)
@@ -260,10 +261,7 @@ services:
       created: new Date().toISOString()
     };
 
-    // Build
     const built = await this.build(project);
-    
-    // Test
     const tested = await this.test(project);
     
     if (tested) {
@@ -278,11 +276,11 @@ services:
   }
 }
 
+export default SaasFactory;
+
 // Run if called directly
-if (require.main === module) {
+if (process.argv[1] && process.argv[1].endsWith('factory/index.js')) {
   const factory = new SaasFactory();
   factory.run({ text: 'Tools auto posting instagram' })
     .then(p => console.log('\n🏭 Project:', p));
 }
-
-module.exports = SaasFactory;

@@ -4,9 +4,14 @@
  * Mempelajari dari kesalahan dan keberhasilan
  */
 
-const fs = require('fs');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const LOG_FILE = '/home/mulky/.openclaw/workspace/organism/memory/life_log.json';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const LOG_FILE = path.join(process.cwd(), 'memory', 'life_log.json');
 
 class MemoryEngine {
   constructor() {
@@ -25,6 +30,10 @@ class MemoryEngine {
   }
 
   save() {
+    const dir = path.dirname(LOG_FILE);
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
     fs.writeFileSync(LOG_FILE, JSON.stringify(this.logs, null, 2));
   }
 
@@ -121,12 +130,13 @@ class MemoryEngine {
   }
 }
 
+export default MemoryEngine;
+
 // Run if called directly
-if (require.main === module) {
+if (process.argv[1] && process.argv[1].endsWith('memory/index.js')) {
   const memory = new MemoryEngine();
   memory.run();
   
-  // Add some test logs
   memory.log('PRODUCT', 'AutoPost IG', 'FAILED', 'No user interest');
   memory.log('PRODUCT', 'Chat Bot', 'SUCCESS', 'High demand');
   memory.log('AGENT', 'Content Writer', 'FAILED', 'Cost too high');
@@ -135,5 +145,3 @@ if (require.main === module) {
   
   process.exit(0);
 }
-
-module.exports = MemoryEngine;

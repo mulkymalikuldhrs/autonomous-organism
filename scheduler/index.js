@@ -28,7 +28,7 @@ class Scheduler {
   }
 
   async runHourly(callback) {
-    if (this.shouldRun('hourly', 3600000)) { // 1 jam
+    if (this.shouldRun('hourly', 3600000)) {
       console.log('\n⏰ [HOURLY CYCLE]');
       await callback();
       this.lastRun.hourly = Date.now();
@@ -37,7 +37,7 @@ class Scheduler {
   }
 
   async runDaily(callback) {
-    if (this.shouldRun('daily', 86400000)) { // 24 jam
+    if (this.shouldRun('daily', 86400000)) {
       console.log('\n🌅 [DAILY CYCLE]');
       await callback();
       this.lastRun.daily = Date.now();
@@ -46,7 +46,7 @@ class Scheduler {
   }
 
   async runWeekly(callback) {
-    if (this.shouldRun('weekly', 604800000)) { // 7 hari
+    if (this.shouldRun('weekly', 604800000)) {
       console.log('\n📅 [WEEKLY CYCLE]');
       await callback();
       this.lastRun.weekly = Date.now();
@@ -55,7 +55,7 @@ class Scheduler {
   }
 
   async runMonthly(callback) {
-    if (this.shouldRun('monthly', 2592000000)) { // 30 hari
+    if (this.shouldRun('monthly', 2592000000)) {
       console.log('\n🗓️ [MONTHLY CYCLE]');
       await callback();
       this.lastRun.monthly = Date.now();
@@ -63,7 +63,6 @@ class Scheduler {
     }
   }
 
-  // Default cycle actions
   async hourlyAction() {
     console.log('   👁️ Scan masalah baru');
     console.log('   📊 Update analytics');
@@ -99,7 +98,6 @@ class Scheduler {
 🗓️ Monthly: Evaluasi spesies
     `);
 
-    // Run cycles
     await this.runHourly(() => this.hourlyAction());
     await this.runDaily(() => this.dailyAction());
     await this.runWeekly(() => this.weeklyAction());
@@ -111,4 +109,4 @@ class Scheduler {
   }
 }
 
-module.exports = Scheduler;
+export default Scheduler;

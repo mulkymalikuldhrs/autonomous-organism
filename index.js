@@ -6,13 +6,17 @@
  * Misi: $50,000/bulan dalam 12 bulan
  */
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 class Organisme {
   constructor() {
     this.name = 'ORGANISME-001';
-    this.version = '1.0.0';
+    this.version = '2.0.0';
     this.state = {
       started: new Date().toISOString(),
       products: [],
@@ -182,7 +186,7 @@ class Organisme {
 
   // Save state
   save() {
-    const file = '/home/mulky/.openclaw/workspace/organism/state.json';
+    const file = path.join(process.cwd(), 'state.json');
     fs.writeFileSync(file, JSON.stringify(this.state, null, 2));
   }
 
@@ -194,7 +198,7 @@ class Organisme {
 ╚═══════════════════════════════════════════════════════════╝
 
 📋 Mission: $50,000/bulan
-🧠 Brain: Ollama (llama3, mistral, qwen)
+🧠 Brain: AI (configurable via VITE_AI_MODEL)
 💰 Target: 12 bulan
 
 Started: ${this.state.started}
@@ -207,8 +211,10 @@ Started: ${this.state.started}
   }
 }
 
+export default Organisme;
+
 // Run if called directly
-if (require.main === module) {
+if (process.argv[1] && process.argv[1].endsWith('index.js')) {
   const organisme = new Organisme();
   organisme.start()
     .then(state => {
@@ -220,5 +226,3 @@ if (require.main === module) {
       process.exit(1);
     });
 }
-
-module.exports = Organisme;
