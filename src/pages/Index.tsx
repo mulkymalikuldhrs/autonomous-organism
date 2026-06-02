@@ -79,7 +79,7 @@ export default function Index() {
         <div className="relative z-10">
           <Header 
             organismName="ORGANISM-ALPHA" 
-            generation={state?.generation ?? 1} 
+            generation={state?.generation ?? 4.1}
             status="online" 
           />
 
@@ -356,7 +356,7 @@ export default function Index() {
           {/* Footer */}
           <footer className="mt-16 pt-8 border-t border-border/30 text-center">
             <p className="text-xs text-muted-foreground font-mono">
-              ORGANISM-ALPHA • GEN-{(state?.generation ?? 1).toString().padStart(4, "0")} • Open Source • Autonomous Life System v2.0.0
+              ORGANISM-ALPHA • GEN-4.1 • Open Source • Autonomous Life System v4.1.0
             </p>
             <p className="text-[10px] text-muted-foreground/50 mt-2">
               "Pemilik bukan bikin produk. Pemilik menciptakan spesies digital."

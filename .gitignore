@@ -11,6 +11,12 @@ node_modules
 dist
 dist-ssr
 *.local
+__pycache__/
+*.pyc
+*.db
+/products/
+/growth_outbox/
+/verification/
 
 # Editor directories and files
 .vscode/*
