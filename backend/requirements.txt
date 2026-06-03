@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+sqlalchemy
+pydantic
+playwright
+beautifulsoup4
+newspaper3k
+requests
+python-dotenv
+nltk
+scikit-learn
+pandas
+psycopg2-binary

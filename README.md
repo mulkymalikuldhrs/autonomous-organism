@@ -29,21 +29,19 @@
 
 ### 🎯 About Autonomous Organism
 
-Autonomous Organism is a self-evolving digital organism system that mimics biological life. It features a neural architecture with sense, decision, immune, memory, and factory subsystems — enabling it to perceive, think, act, and evolve autonomously. Built as a full-stack application with React frontend and Supabase backend.
+Autonomous Organism is a self-evolving digital organism system that mimics biological life. It features a neural architecture with sense, decision, immune, memory, and factory subsystems — enabling it to perceive, think, act, and evolve autonomously. Built as a full-stack application with React frontend and FastAPI/Python backend.
 
-### ✨ v2.0.0 — Production-Ready Release
+### ✨ v2.1.0 — Gen-4.1 Autonomous Upgrade
 
-This release transforms the project from a UI demo into a functional autonomous pipeline:
+This release transforms the project from a simulation into a functional autonomous pipeline with a local-first architecture:
 
-- 🔄 **Connected Pipeline**: Sense → Decision → Factory → Growth — all engines are wired to Supabase Edge Functions
-- 🧠 **Decision Engine**: Real scoring with sentiment analysis, automation potential, and money potential; AI-enhanced via OpenAI API
-- 🏭 **Factory Engine**: Generates SaaS project templates from top ideas; AI-enhanced page generation
-- 📢 **Growth Engine**: Campaign generation and marketing simulation; AI-enhanced content creation
-- 🗄️ **Real Database**: All metrics come from Supabase (problem_raw, idea_candidates, engine_runs, engine_logs)
-- ⚙️ **Configurable AI Model**: Uses `gpt-4o-mini` by default, configurable via `VITE_AI_MODEL` env var
-- 🛡️ **Fixed Hardcoded Paths**: All paths are relative (no more `/home/mulky/...`)
-- 📊 **Real Dashboard**: Metrics pulled from actual Supabase queries, not simulation
-- 🔧 **Fixed Config**: Package name, version, index.html title, ESLint — all corrected
+- 🔄 **Connected Pipeline**: Sense → Decision → Factory → Growth → Monetization — all engines are integrated into a central FastAPI orchestrator.
+- 🧠 **Decision Engine**: Real analysis of scraped problems using local LLMs (Ollama) or HF fallbacks to generate SaaS blueprints.
+- 🏭 **Factory Engine**: Generates functional FastAPI backend code and project structures for new SaaS products autonomously.
+- 👁️ **Real Sensing**: Scrapes HackerNews and IndieHackers using BeautifulSoup and Newspaper3k to find human problems.
+- 🗄️ **Local Database**: Persistent storage via SQLite (`organism.db`) using SQLAlchemy, removing vendor lock-in.
+- ⚙️ **Autonomy First**: Support for local dev bypass and automated life cycles without manual intervention.
+- 📊 **Unified Dashboard**: Metrics and logs pulled directly from the local FastAPI backend.
 
 ### ✨ Key Features
 
@@ -63,25 +61,24 @@ This release transforms the project from a UI demo into a functional autonomous 
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│                AUTONOMOUS ORGANISM v2.0                       │
+│                AUTONOMOUS ORGANISM Gen-4.1                   │
 ├──────────────────────────────────────────────────────────────┤
 │                                                              │
 │  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐   │
-│  │  React   │  │  Vite    │  │Tailwind  │  │ Supabase │   │
+│  │  React   │  │  Vite    │  │Tailwind  │  │ FastAPI  │   │
 │  │ Frontend │  │  Build   │  │  CSS 3   │  │ Backend  │   │
 │  └────┬─────┘  └──────────┘  └──────────┘  └────┬─────┘   │
 │       │                                           │          │
 │  ┌────▼───────────────────────────────────────────▼──────┐  │
-│  │           Supabase Edge Functions                     │  │
+│  │           Autonomous Engine Core                      │  │
 │  │  ┌────────┐ ┌────────┐ ┌────────┐ ┌──────────────┐  │  │
-│  │  │ingest- │ │run-    │ │run-    │ │run-          │  │  │
-│  │  │sense   │ │decision│ │factory │ │growth        │  │  │
+│  │  │ Sense  │ │Decision│ │Factory │ │ Growth/Mon   │  │  │
 │  │  └────────┘ └────────┘ └────────┘ └──────────────┘  │  │
 │  └───────────────────────────────────────────────────────┘  │
 │                                                              │
 │  ┌───────────────────────────────────────────────────────┐  │
-│  │         AI Integration (OpenAI API / Puter.js)        │  │
-│  │         Configurable via VITE_AI_MODEL env var        │  │
+│  │         AI Integration (Ollama / HuggingFace)         │  │
+│  │         Local-first for maximum autonomy              │  │
 │  └───────────────────────────────────────────────────────┘  │
 │                                                              │
 └──────────────────────────────────────────────────────────────┘
@@ -90,25 +87,18 @@ This release transforms the project from a UI demo into a functional autonomous 
 ### 🚀 Quick Start
 
 ```bash
-git clone https://github.com/mulkymalikuldhrs/autonomous-organism.git
-cd autonomous-organism
-cp .env.example .env
-# Edit .env with your Supabase credentials
+# 1. Install Backend Dependencies
+pip install -r backend/requirements.txt
+
+# 2. Install Frontend Dependencies
 npm install
-npm run dev
+
+# 3. Start Backend
+python3 -m backend.main
+
+# 4. Start Frontend
+npm run dev -- --port 8080
 ```
-
-### ⚙️ Environment Setup
-
-1. Create a Supabase project at [supabase.com](https://supabase.com)
-2. Run the migration in `supabase/migrations/`
-3. Deploy the Edge Functions in `supabase/functions/`
-4. Set the secrets in Supabase Dashboard (Edge Functions > Secrets):
-   - `SUPABASE_URL`
-   - `SUPABASE_SERVICE_ROLE_KEY`
-   - `SUPABASE_PUBLISHABLE_KEY`
-   - `OPENAI_API_KEY` (optional — for AI-enhanced engines)
-   - `AI_MODEL` (optional — default: `gpt-4o-mini`)
 
 ---
 
