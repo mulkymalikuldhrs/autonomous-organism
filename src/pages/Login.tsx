@@ -37,10 +37,11 @@ export default function Login() {
       if (error) throw error;
       if (data.session) await bootstrap();
       nav("/");
-    } catch (e: any) {
+    } catch (e: unknown) {
+      const message = e instanceof Error ? e.message : 'Terjadi kesalahan';
       toast({
         title: "Login gagal",
-        description: e?.message ?? "Terjadi kesalahan",
+        description: message,
         variant: "destructive",
       });
     } finally {
@@ -58,10 +59,11 @@ export default function Login() {
       if (session) await bootstrap();
       toast({ title: "Akun dibuat", description: "Masuk ke sistem…" });
       nav("/");
-    } catch (e: any) {
+    } catch (e: unknown) {
+      const message = e instanceof Error ? e.message : 'Terjadi kesalahan';
       toast({
         title: "Signup gagal",
-        description: e?.message ?? "Terjadi kesalahan",
+        description: message,
         variant: "destructive",
       });
     } finally {
