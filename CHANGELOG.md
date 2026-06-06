@@ -88,4 +88,4 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 > **⚠️ For Education Purpose Only**
 > This project is provided strictly for educational and research purposes. The authors and contributors assume **no responsibility or liability** for any damages, losses, or risks arising from the use of this software.
 >
-> **Contact:** Mulky Malikul Dhaher | mulkymalikuldhaher@email.com
+> **Contact:** Mulky Malikul Dhaher | mulkymalikudhr@mail.com

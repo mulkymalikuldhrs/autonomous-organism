@@ -362,7 +362,7 @@ export default function Index() {
               "Pemilik bukan bikin produk. Pemilik menciptakan spesies digital."
             </p>
             <p className="text-[10px] text-muted-foreground/40 mt-1">
-              ⚠️ For Education Purpose Only — mulkymalikuldhaher@email.com
+              ⚠️ For Education Purpose Only — mulkymalikudhr@mail.com
             </p>
           </footer>
           </main>

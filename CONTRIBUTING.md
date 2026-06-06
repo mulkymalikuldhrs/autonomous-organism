@@ -11,7 +11,7 @@ Thank you for your interest in contributing! This document provides guidelines f
 >
 > **Risk Disclaimer:** This project is for demonstration and educational purposes only. Use at your own risk.
 >
-> **Contact:** Mulky Malikul Dhaher | mulkymalikuldhaher@email.com
+> **Contact:** Mulky Malikul Dhaher | mulkymalikudhr@mail.com
 
 ---
 
@@ -83,8 +83,8 @@ We use [Conventional Commits](https://www.conventionalcommits.org/):
 
 ## 🔒 Security
 
-Please report security vulnerabilities privately to [mulkymalikuldhaher@email.com](mailto:mulkymalikuldhaher@email.com). Do not open public issues for security vulnerabilities.
+Please report security vulnerabilities privately to [mulkymalikudhr@mail.com](mailto:mulkymalikudhr@mail.com). Do not open public issues for security vulnerabilities.
 
 ---
 
-**Contact:** [mulkymalikuldhaher@email.com](mailto:mulkymalikuldhaher@email.com)
+**Contact:** [mulkymalikudhr@mail.com](mailto:mulkymalikudhr@mail.com)

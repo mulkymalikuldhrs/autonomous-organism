@@ -192,7 +192,7 @@ npm run dev
 
 We welcome contributions! Please read our [Contributing Guide](./CONTRIBUTING.md) for details.
 
-**Contact:** Mulky Malikul Dhaher | mulkymalikuldhaher@email.com
+**Contact:** Mulky Malikul Dhaher | mulkymalikudhr@mail.com
 
 ---
 
@@ -202,19 +202,19 @@ We welcome contributions! Please read our [Contributing Guide](./CONTRIBUTING.md
 
 > **⚠️ For Education Purpose Only**
 > This project is provided strictly for educational and research purposes. The authors and contributors assume **no responsibility or liability** for any damages, losses, or risks arising from the use of this software. **We do not bear any responsibility or risk** for how this software is used.
-> **Contact:** Mulky Malikul Dhaher | mulkymalikuldhaher@email.com
+> **Contact:** Mulky Malikul Dhaher | mulkymalikudhr@mail.com
 
 ### 🇮🇩 Bahasa Indonesia
 
 > **⚠️ Hanya untuk Tujuan Edukasi**
 > Proyek ini disediakan secara ketat untuk tujuan edukasi dan penelitian. Penulis dan kontributor **tidak bertanggung jawab atau berkewajiban** atas kerusakan, kerugian, atau risiko yang timbul dari penggunaan perangkat lunak ini. **Kami tidak menanggung tanggung jawab atau risiko** apapun atas penggunaan perangkat lunak ini.
-> **Kontak:** Mulky Malikul Dhaher | mulkymalikuldhaher@email.com
+> **Kontak:** Mulky Malikul Dhaher | mulkymalikudhr@mail.com
 
 ### 🇨🇳 中文
 
 > **⚠️ 仅供教育目的**
 > 本项目严格仅用于教育和研究目的。作者和贡献者对因使用本软件而产生的任何损害、损失或风险**不承担任何责任或义务**。**我们对本软件的使用方式不承担任何责任或风险**。
-> **联系方式:** Mulky Malikul Dhaher | mulkymalikuldhaher@email.com
+> **联系方式:** Mulky Malikul Dhaher | mulkymalikudhr@mail.com
 
 ---
 
