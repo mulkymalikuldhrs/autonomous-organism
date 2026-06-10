@@ -1,30 +1,34 @@
 ---
-name: Bug report
-about: Create a report to help us improve
-title: '[BUG] '
+name: Bug Report
+about: Report a bug to help us improve
+title: 'bug: '
 labels: bug
 assignees: ''
 ---
 
-## 🐛 Bug Description
-
+## Bug Description
 A clear description of what the bug is.
 
-## 📋 Steps to Reproduce
-
+## Steps to Reproduce
 1. Go to '...'
 2. Click on '...'
-3. See error
+3. Scroll down to '...'
+4. See error
 
-## ✅ Expected Behavior
-
+## Expected Behavior
 What you expected to happen.
 
-## 📱 Environment
+## Actual Behavior
+What actually happened.
 
-- OS: [e.g. iOS]
-- Browser: [e.g. Chrome]
+## Environment
+- OS: [e.g., macOS 14, Ubuntu 22.04, Windows 11]
+- Node.js/Python version: [e.g., 20.11.0 / 3.12]
+- Browser: [e.g., Chrome 121]
+- Project version: [e.g., v3.0.0]
 
-## ⚠️ Disclaimer
+## Screenshots / Logs
+If applicable, add screenshots or error logs.
 
-This project is for Education Purpose Only. The authors assume no responsibility or liability.
+## Additional Context
+Any other context about the problem.
