@@ -1,4 +1,3 @@
-<img src="docs/banner.png" width="100%">
 
 <a href="https://github.com/mulkymalikuldhrs/autonomous-organism">
   <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0a1a0a,50:0d2a0d,100:103a10&fontColor=22c55e&descColor=a3e635&height=220&section=header&text=Autonomous%20Organism&fontSize=55&desc=Self-Evolving%20Digital%20Entity&animation=fadeIn" />
