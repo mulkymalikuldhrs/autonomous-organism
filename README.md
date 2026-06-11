@@ -357,6 +357,10 @@ npm install
 
 ```bash
 # Start with default configuration
+
+<!-- AUTO-PACKAGE-BADGES:START -->
+
+<!-- AUTO-PACKAGE-BADGES:END -->
 npm run start
 
 # Start with custom environment config
